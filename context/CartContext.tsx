@@ -1,8 +1,13 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-type CartItem = {
+export type CartItem = {
   id: string;
   name: string;
   price: number;
@@ -16,12 +21,40 @@ type CartContextType = {
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: string) => void;
   updateQty: (id: string, qty: number) => void;
+  clearCart: () => void;
 };
+
+/* ---------------- CONTEXT ---------------- */
 
 const CartContext = createContext<CartContextType | null>(null);
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
+/* ---------------- PROVIDER ---------------- */
+
+export function CartProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [cart, setCart] = useState<CartItem[]>([]);
+
+  /* 🔹 LOAD CART FROM localStorage ON APP LOAD */
+  useEffect(() => {
+    const savedCart = localStorage.getItem("eatsy-cart");
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch {
+        setCart([]);
+      }
+    }
+  }, []);
+
+  /* 🔹 SAVE CART TO localStorage WHENEVER IT CHANGES */
+  useEffect(() => {
+    localStorage.setItem("eatsy-cart", JSON.stringify(cart));
+  }, [cart]);
+
+  /* ---------------- ACTIONS ---------------- */
 
   const addToCart = (item: CartItem) => {
     setCart((prev) => {
@@ -32,7 +65,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       if (existing) {
         return prev.map((i) =>
           i.id === item.id && i.size === item.size
-            ? { ...i, quantity: i.quantity + item.quantity }
+            ? {
+                ...i,
+                quantity: i.quantity + item.quantity,
+              }
             : i
         );
       }
@@ -48,22 +84,42 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const updateQty = (id: string, qty: number) => {
     setCart((prev) =>
       prev.map((i) =>
-        i.id === id ? { ...i, quantity: Math.max(1, qty) } : i
+        i.id === id
+          ? { ...i, quantity: Math.max(1, qty) }
+          : i
       )
     );
   };
 
+  /* 🔹 CLEAR CART AFTER ORDER */
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("eatsy-cart");
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQty }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQty,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>
   );
 }
 
+/* ---------------- HOOK ---------------- */
+
 export function useCart() {
   const ctx = useContext(CartContext);
-  if (!ctx) throw new Error("useCart must be used inside CartProvider");
+  if (!ctx) {
+    throw new Error(
+      "useCart must be used inside CartProvider"
+    );
+  }
   return ctx;
 }
