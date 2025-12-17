@@ -42,41 +42,29 @@ button {
     transform: scale(1);
   }
 }
+
 /* Splash Screen */
 .splash-screen {
   position: fixed;
   inset: 0;
   background: #ff6a3d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
+
+  display: grid;
+  place-items: center;
+
+  /* mobile safe-area fix */
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+
   animation: slideUp 0.9s ease-in-out forwards;
   animation-delay: 2s;
 }
 
 .splash-content {
   text-align: center;
+
+  /* visual center correction */
+  transform: translateY(-5%);
   animation: fadeIn 0.8s ease-in-out;
-}
-
-/* Animations */
-@keyframes slideUp {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
