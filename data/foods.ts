@@ -26,7 +26,7 @@ export const foods = [
     price: 150,
     rating: 4.2,
     time: "18 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/7d/33/a3/7d33a300db7d513ccfa9494fe291bcea.jpg",
     description: "Steamed veg momos served with spicy dipping sauce.",
   },
   {
@@ -35,7 +35,7 @@ export const foods = [
     price: 210,
     rating: 4.4,
     time: "20 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/95/f2/3a/95f23a18f3b656ceea29fdcd522995a1.jpg",
     description: "Juicy chicken momos with Indo-Bhutan spices.",
   },
   {
@@ -44,7 +44,7 @@ export const foods = [
     price: 240,
     rating: 4.5,
     time: "20 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/62/ca/5b/62ca5b4bc355b9b46a72db730748276b.jpg",
     description: "Cheesy momos with soft filling and crispy outer layer.",
   },
   {
@@ -53,7 +53,7 @@ export const foods = [
     price: 260,
     rating: 4.6,
     time: "22 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/2a/ac/20/2aac2026b3d1095799f35224c3ddc7a5.jpg",
     description: "Fried momos tossed in spicy chilli sauce.",
   },
   {
@@ -73,7 +73,7 @@ export const foods = [
     price: 190,
     rating: 4.2,
     time: "20 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/fc/04/68/fc0468200749fcc17af2fb600d22c906.jpg",
     description: "Classic Indo-Chinese chowmein with vegetables.",
   },
   {
@@ -82,7 +82,7 @@ export const foods = [
     price: 240,
     rating: 4.4,
     time: "22 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
     description: "Stir-fried noodles with chicken and sauces.",
   },
   {
@@ -91,7 +91,7 @@ export const foods = [
     price: 240,
     rating: 4.3,
     time: "22 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/a0/62/b7/a062b7046e8d291c9417a99e777cb121.jpg",
     description: "Wok tossed hakka noodles with veggies.",
   },
   {
@@ -100,7 +100,7 @@ export const foods = [
     price: 280,
     rating: 4.5,
     time: "25 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/dc/a4/b9/dca4b9f1476906f09432ef91b58274a6.jpg",
     description: "Chicken hakka noodles with authentic flavour.",
   },
 
@@ -111,7 +111,7 @@ export const foods = [
     price: 340,
     rating: 4.3,
     time: "25 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/4f/10/da/4f10da5c58089b7e57ef33222272ade1.jpg",
     description: "Creamy white sauce pasta with herbs.",
   },
   {
@@ -120,7 +120,7 @@ export const foods = [
     price: 390,
     rating: 4.5,
     time: "28 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/ec/34/7f/ec347f01ca21cfc9ec56c220b92448a7.jpg",
     description: "White sauce pasta loaded with chicken.",
   },
   {
@@ -129,7 +129,7 @@ export const foods = [
     price: 390,
     rating: 4.4,
     time: "25 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/d4/af/ae/d4afaea8a8793de367d324501f016638.jpg",
     description: "Tangy red sauce pasta with Italian seasoning.",
   },
   {
@@ -138,7 +138,7 @@ export const foods = [
     price: 440,
     rating: 4.6,
     time: "28 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/d9/11/f8/d911f8fc5102409131814aa4ca0139d7.jpg",
     description: "Red sauce pasta with tender chicken pieces.",
   },
 
@@ -149,7 +149,7 @@ export const foods = [
     price: 180,
     rating: 4.1,
     time: "15 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/b3/4e/d4/b34ed4b00a3dd297cd6c850133e3936c.jpg",
     description: "Grilled veg patty with fresh lettuce and sauces.",
   },
   {
@@ -158,7 +158,7 @@ export const foods = [
     price: 220,
     rating: 4.4,
     time: "18 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/5f/82/e3/5f82e30c4a237be5a7450981997fc399.jpg",
     description: "Crispy chicken burger with cheese.",
   },
 
@@ -169,7 +169,7 @@ export const foods = [
     price: 180,
     rating: 4.0,
     time: "15 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/2c/11/93/2c11935117092b235038c6061a4f456e.jpg",
     description: "Grilled sandwich with fresh vegetables.",
   },
   {
@@ -178,7 +178,7 @@ export const foods = [
     price: 240,
     rating: 4.3,
     time: "18 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/70/42/76/7042764ebad2e8c8eb243471b5de58fb.jpg",
     description: "Grilled sandwich with seasoned chicken.",
   },
 
@@ -189,7 +189,7 @@ export const foods = [
     price: 390,
     rating: 4.3,
     time: "25 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/95/9d/07/959d075f1d43263e53f1bbff0dee4baf.jpg",
     description: "Veg pizza topped with cheese and vegetables.",
   },
   {
@@ -198,7 +198,7 @@ export const foods = [
     price: 490,
     rating: 4.6,
     time: "28 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/ed/f2/8f/edf28fb00b8a2a5166c454b3b9f3d9f4.jpg",
     description: "Chicken pizza with mozzarella and herbs.",
   },
 
@@ -209,7 +209,7 @@ export const foods = [
     price: 290,
     rating: 4.2,
     time: "15 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/00/8b/e6/008be6452db46315db8f998db8006ef9.jpg",
     description: "Egg roll wrapped with sauces and veggies.",
   },
   {
@@ -218,7 +218,7 @@ export const foods = [
     price: 340,
     rating: 4.4,
     time: "18 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/63/65/87/6365870159e66be89efcd9cfee1a36d0.jpg",
     description: "Chicken roll with spicy fillings.",
   },
 ];
