@@ -1,46 +1,201 @@
-export const foods = [
+export type MenuItem = {
+  id: string;
+  name: string;
+  category:
+    | "Momos"
+    | "Noodles"
+    | "Burger"
+    | "Sandwich"
+    | "Pizza"
+    | "Veg Bites"
+    | "Non-Veg Bites"
+    | "Egg Roll"
+    | "Rice"
+    | "Pasta";
+  vegPrice?: number;
+  chickenPrice?: number;
+  image: string; // 🔹 image link placeholder
+};
+
+export const menu: MenuItem[] = [
+  /* ---------------- MOMOS ---------------- */
   {
-    id: "1",
-    name: "Hyderabadi Biryani",
-    price: 550,
-    rating: 4.8,
-    time: "25 min",
-    image:
-      "https://i.pinimg.com/1200x/1a/59/f0/1a59f0e988c227075ce7a6e261f9f362.jpg",
-    description:
-      "Aromatic basmati rice cooked with tender chicken and traditional spices.",
+    id: "veg-momo",
+    name: "Veg Momo",
+    category: "Momos",
+    vegPrice: 150,
+    image: "/images/placeholder.jpg",
   },
   {
-    id: "2",
-    name: "Veg Biryani",
-    price: 450,
-    rating: 4.5,
-    time: "20 min",
-    image:
-      "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a",
-    description:
-      "Flavorful vegetable biryani made with fresh seasonal vegetables.",
-  },
-  {
-    id: "3",
-    name: "Chicken Noodles",
-    price: 400,
-    rating: 4.6,
-    time: "22 min",
-    image:
-      "https://i.pinimg.com/1200x/a4/f7/03/a4f70319a4b2aa5ae47931b76ef738b8.jpg",
-    description:
-      "Stir-fried noodles with chicken, veggies, and Asian sauces.",
-  },
-  {
-    id: "4",
+    id: "chicken-momo",
     name: "Chicken Momo",
-    price: 450,
-    rating: 4.5,
-    time: "20 min",
-    image:
-      "https://i.pinimg.com/736x/78/78/31/7878314c87470cba1feae734278cf18c.jpg",
-    description:
-      "Flavorful vegetable biryani made with fresh seasonal vegetables.",
+    category: "Momos",
+    chickenPrice: 210,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "cheese-momo",
+    name: "Cheese Momo",
+    category: "Momos",
+    vegPrice: 240,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- NOODLES ---------------- */
+  {
+    id: "chowmein",
+    name: "Chowmein",
+    category: "Noodles",
+    vegPrice: 190,
+    chickenPrice: 240,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "hakka-noodles",
+    name: "Hakka Noodles",
+    category: "Noodles",
+    vegPrice: 240,
+    chickenPrice: 280,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "schezwan-noodles",
+    name: "Schezwan Noodles",
+    category: "Noodles",
+    vegPrice: 260,
+    chickenPrice: 290,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- BURGER ---------------- */
+  {
+    id: "veg-burger",
+    name: "Veg Burger",
+    category: "Burger",
+    vegPrice: 180,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "chicken-burger",
+    name: "Chicken Burger",
+    category: "Burger",
+    chickenPrice: 220,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- SANDWICH ---------------- */
+  {
+    id: "grilled-veg-sandwich",
+    name: "Grilled Veg Sandwich",
+    category: "Sandwich",
+    vegPrice: 180,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "grilled-chicken-sandwich",
+    name: "Grilled Chicken Sandwich",
+    category: "Sandwich",
+    chickenPrice: 240,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- PIZZA ---------------- */
+  {
+    id: "veg-pizza",
+    name: "Veg Pizza (Regular)",
+    category: "Pizza",
+    vegPrice: 390,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "chicken-pizza",
+    name: "Chicken Pizza (Regular)",
+    category: "Pizza",
+    chickenPrice: 490,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- VEG BITES ---------------- */
+  {
+    id: "aloo-paratha",
+    name: "Aloo Paratha",
+    category: "Veg Bites",
+    vegPrice: 190,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "paneer-pakoda",
+    name: "Paneer Pakoda",
+    category: "Veg Bites",
+    vegPrice: 430,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- NON-VEG BITES ---------------- */
+  {
+    id: "chicken-chilli",
+    name: "Chicken Chilli",
+    category: "Non-Veg Bites",
+    chickenPrice: 390,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "chicken-nuggets",
+    name: "Chicken Nuggets",
+    category: "Non-Veg Bites",
+    chickenPrice: 490,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- EGG ROLL ---------------- */
+  {
+    id: "egg-roll",
+    name: "Egg Roll",
+    category: "Egg Roll",
+    vegPrice: 290,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "chicken-roll",
+    name: "Chicken Roll",
+    category: "Egg Roll",
+    chickenPrice: 340,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- RICE ---------------- */
+  {
+    id: "fried-rice",
+    name: "Fried Rice",
+    category: "Rice",
+    vegPrice: 190,
+    chickenPrice: 290,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "schezwan-rice",
+    name: "Schezwan Rice",
+    category: "Rice",
+    vegPrice: 210,
+    chickenPrice: 320,
+    image: "/images/placeholder.jpg",
+  },
+
+  /* ---------------- PASTA ---------------- */
+  {
+    id: "white-sauce-pasta",
+    name: "White Sauce Pasta",
+    category: "Pasta",
+    vegPrice: 340,
+    chickenPrice: 390,
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "red-sauce-pasta",
+    name: "Red Sauce Pasta",
+    category: "Pasta",
+    vegPrice: 390,
+    chickenPrice: 440,
+    image: "/images/placeholder.jpg",
   },
 ];
