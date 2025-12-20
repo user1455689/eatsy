@@ -1,201 +1,224 @@
-export type MenuItem = {
-  id: string;
-  name: string;
-  category:
-    | "Momos"
-    | "Noodles"
-    | "Burger"
-    | "Sandwich"
-    | "Pizza"
-    | "Veg Bites"
-    | "Non-Veg Bites"
-    | "Egg Roll"
-    | "Rice"
-    | "Pasta";
-  vegPrice?: number;
-  chickenPrice?: number;
-  image: string; // 🔹 image link placeholder
-};
-
-export const menu: MenuItem[] = [
-  /* ---------------- MOMOS ---------------- */
+export const foods = [
+  /* ================= BIRYANI ================= */
   {
-    id: "veg-momo",
+    id: "1",
+    name: "Hyderabadi Biryani",
+    price: 550,
+    rating: 4.8,
+    time: "25 min",
+    image: "https://i.pinimg.com/1200x/1a/59/f0/1a59f0e988c227075ce7a6e261f9f362.jpg",
+    description: "Aromatic basmati rice cooked with tender chicken and traditional spices.",
+  },
+  {
+    id: "2",
+    name: "Veg Biryani",
+    price: 450,
+    rating: 4.5,
+    time: "20 min",
+    image: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a",
+    description: "Flavorful vegetable biryani made with fresh seasonal vegetables.",
+  },
+
+  /* ================= MOMOS ================= */
+  {
+    id: "3",
     name: "Veg Momo",
-    category: "Momos",
-    vegPrice: 150,
+    price: 150,
+    rating: 4.2,
+    time: "18 min",
     image: "/images/placeholder.jpg",
+    description: "Steamed veg momos served with spicy dipping sauce.",
   },
   {
-    id: "chicken-momo",
+    id: "4",
     name: "Chicken Momo",
-    category: "Momos",
-    chickenPrice: 210,
+    price: 210,
+    rating: 4.4,
+    time: "20 min",
     image: "/images/placeholder.jpg",
+    description: "Juicy chicken momos with Indo-Bhutan spices.",
   },
   {
-    id: "cheese-momo",
+    id: "5",
     name: "Cheese Momo",
-    category: "Momos",
-    vegPrice: 240,
+    price: 240,
+    rating: 4.5,
+    time: "20 min",
     image: "/images/placeholder.jpg",
+    description: "Cheesy momos with soft filling and crispy outer layer.",
+  },
+  {
+    id: "6",
+    name: "Chilli Momo",
+    price: 260,
+    rating: 4.6,
+    time: "22 min",
+    image: "/images/placeholder.jpg",
+    description: "Fried momos tossed in spicy chilli sauce.",
+  },
+  {
+    id: "7",
+    name: "Dynamite Momo",
+    price: 320,
+    rating: 4.7,
+    time: "25 min",
+    image: "/images/placeholder.jpg",
+    description: "Extra spicy dynamite momos for spice lovers.",
   },
 
-  /* ---------------- NOODLES ---------------- */
+  /* ================= NOODLES ================= */
   {
-    id: "chowmein",
+    id: "8",
     name: "Chowmein",
-    category: "Noodles",
-    vegPrice: 190,
-    chickenPrice: 240,
+    price: 190,
+    rating: 4.2,
+    time: "20 min",
     image: "/images/placeholder.jpg",
+    description: "Classic Indo-Chinese chowmein with vegetables.",
   },
   {
-    id: "hakka-noodles",
+    id: "9",
+    name: "Chicken Chowmein",
+    price: 240,
+    rating: 4.4,
+    time: "22 min",
+    image: "/images/placeholder.jpg",
+    description: "Stir-fried noodles with chicken and sauces.",
+  },
+  {
+    id: "10",
     name: "Hakka Noodles",
-    category: "Noodles",
-    vegPrice: 240,
-    chickenPrice: 280,
+    price: 240,
+    rating: 4.3,
+    time: "22 min",
     image: "/images/placeholder.jpg",
+    description: "Wok tossed hakka noodles with veggies.",
   },
   {
-    id: "schezwan-noodles",
-    name: "Schezwan Noodles",
-    category: "Noodles",
-    vegPrice: 260,
-    chickenPrice: 290,
+    id: "11",
+    name: "Chicken Hakka Noodles",
+    price: 280,
+    rating: 4.5,
+    time: "25 min",
     image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- BURGER ---------------- */
-  {
-    id: "veg-burger",
-    name: "Veg Burger",
-    category: "Burger",
-    vegPrice: 180,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "chicken-burger",
-    name: "Chicken Burger",
-    category: "Burger",
-    chickenPrice: 220,
-    image: "/images/placeholder.jpg",
+    description: "Chicken hakka noodles with authentic flavour.",
   },
 
-  /* ---------------- SANDWICH ---------------- */
+  /* ================= PASTA ================= */
   {
-    id: "grilled-veg-sandwich",
-    name: "Grilled Veg Sandwich",
-    category: "Sandwich",
-    vegPrice: 180,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "grilled-chicken-sandwich",
-    name: "Grilled Chicken Sandwich",
-    category: "Sandwich",
-    chickenPrice: 240,
-    image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- PIZZA ---------------- */
-  {
-    id: "veg-pizza",
-    name: "Veg Pizza (Regular)",
-    category: "Pizza",
-    vegPrice: 390,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "chicken-pizza",
-    name: "Chicken Pizza (Regular)",
-    category: "Pizza",
-    chickenPrice: 490,
-    image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- VEG BITES ---------------- */
-  {
-    id: "aloo-paratha",
-    name: "Aloo Paratha",
-    category: "Veg Bites",
-    vegPrice: 190,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "paneer-pakoda",
-    name: "Paneer Pakoda",
-    category: "Veg Bites",
-    vegPrice: 430,
-    image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- NON-VEG BITES ---------------- */
-  {
-    id: "chicken-chilli",
-    name: "Chicken Chilli",
-    category: "Non-Veg Bites",
-    chickenPrice: 390,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "chicken-nuggets",
-    name: "Chicken Nuggets",
-    category: "Non-Veg Bites",
-    chickenPrice: 490,
-    image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- EGG ROLL ---------------- */
-  {
-    id: "egg-roll",
-    name: "Egg Roll",
-    category: "Egg Roll",
-    vegPrice: 290,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "chicken-roll",
-    name: "Chicken Roll",
-    category: "Egg Roll",
-    chickenPrice: 340,
-    image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- RICE ---------------- */
-  {
-    id: "fried-rice",
-    name: "Fried Rice",
-    category: "Rice",
-    vegPrice: 190,
-    chickenPrice: 290,
-    image: "/images/placeholder.jpg",
-  },
-  {
-    id: "schezwan-rice",
-    name: "Schezwan Rice",
-    category: "Rice",
-    vegPrice: 210,
-    chickenPrice: 320,
-    image: "/images/placeholder.jpg",
-  },
-
-  /* ---------------- PASTA ---------------- */
-  {
-    id: "white-sauce-pasta",
+    id: "12",
     name: "White Sauce Pasta",
-    category: "Pasta",
-    vegPrice: 340,
-    chickenPrice: 390,
+    price: 340,
+    rating: 4.3,
+    time: "25 min",
     image: "/images/placeholder.jpg",
+    description: "Creamy white sauce pasta with herbs.",
   },
   {
-    id: "red-sauce-pasta",
-    name: "Red Sauce Pasta",
-    category: "Pasta",
-    vegPrice: 390,
-    chickenPrice: 440,
+    id: "13",
+    name: "Chicken White Sauce Pasta",
+    price: 390,
+    rating: 4.5,
+    time: "28 min",
     image: "/images/placeholder.jpg",
+    description: "White sauce pasta loaded with chicken.",
+  },
+  {
+    id: "14",
+    name: "Red Sauce Pasta",
+    price: 390,
+    rating: 4.4,
+    time: "25 min",
+    image: "/images/placeholder.jpg",
+    description: "Tangy red sauce pasta with Italian seasoning.",
+  },
+  {
+    id: "15",
+    name: "Chicken Red Sauce Pasta",
+    price: 440,
+    rating: 4.6,
+    time: "28 min",
+    image: "/images/placeholder.jpg",
+    description: "Red sauce pasta with tender chicken pieces.",
+  },
+
+  /* ================= BURGER ================= */
+  {
+    id: "16",
+    name: "Veg Burger",
+    price: 180,
+    rating: 4.1,
+    time: "15 min",
+    image: "/images/placeholder.jpg",
+    description: "Grilled veg patty with fresh lettuce and sauces.",
+  },
+  {
+    id: "17",
+    name: "Chicken Burger",
+    price: 220,
+    rating: 4.4,
+    time: "18 min",
+    image: "/images/placeholder.jpg",
+    description: "Crispy chicken burger with cheese.",
+  },
+
+  /* ================= SANDWICH ================= */
+  {
+    id: "18",
+    name: "Grilled Veg Sandwich",
+    price: 180,
+    rating: 4.0,
+    time: "15 min",
+    image: "/images/placeholder.jpg",
+    description: "Grilled sandwich with fresh vegetables.",
+  },
+  {
+    id: "19",
+    name: "Grilled Chicken Sandwich",
+    price: 240,
+    rating: 4.3,
+    time: "18 min",
+    image: "/images/placeholder.jpg",
+    description: "Grilled sandwich with seasoned chicken.",
+  },
+
+  /* ================= PIZZA ================= */
+  {
+    id: "20",
+    name: "Veg Pizza",
+    price: 390,
+    rating: 4.3,
+    time: "25 min",
+    image: "/images/placeholder.jpg",
+    description: "Veg pizza topped with cheese and vegetables.",
+  },
+  {
+    id: "21",
+    name: "Chicken Pizza",
+    price: 490,
+    rating: 4.6,
+    time: "28 min",
+    image: "/images/placeholder.jpg",
+    description: "Chicken pizza with mozzarella and herbs.",
+  },
+
+  /* ================= EGG ROLL ================= */
+  {
+    id: "22",
+    name: "Egg Roll",
+    price: 290,
+    rating: 4.2,
+    time: "15 min",
+    image: "/images/placeholder.jpg",
+    description: "Egg roll wrapped with sauces and veggies.",
+  },
+  {
+    id: "23",
+    name: "Chicken Roll",
+    price: 340,
+    rating: 4.4,
+    time: "18 min",
+    image: "/images/placeholder.jpg",
+    description: "Chicken roll with spicy fillings.",
   },
 ];
