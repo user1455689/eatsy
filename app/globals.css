@@ -79,7 +79,9 @@ button {
 
   text-align: center;
 
-  animation: splashFadeIn 0.8s ease-out;
+  /* visual center correction */
+  transform: translateY(-5%);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 /* ================= ANIMATIONS ================= */
