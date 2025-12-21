@@ -1,28 +1,9 @@
 export const foods = [
-  /* ================= BIRYANI ================= */
-  {
-    id: "1",
-    name: "Hyderabadi Biryani",
-    price: 550,
-    rating: 4.8,
-    time: "25 min",
-    image: "https://i.pinimg.com/1200x/1a/59/f0/1a59f0e988c227075ce7a6e261f9f362.jpg",
-    description: "Aromatic basmati rice cooked with tender chicken and traditional spices.",
-  },
-  {
-    id: "2",
-    name: "Veg Biryani",
-    price: 450,
-    rating: 4.5,
-    time: "20 min",
-    image: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a",
-    description: "Flavorful vegetable biryani made with fresh seasonal vegetables.",
-  },
-
   /* ================= MOMOS ================= */
   {
-    id: "3",
+    id: "1",
     name: "Veg Momo",
+    category: "Momos",
     price: 150,
     rating: 4.2,
     time: "18 min",
@@ -30,8 +11,9 @@ export const foods = [
     description: "Steamed veg momos served with spicy dipping sauce.",
   },
   {
-    id: "4",
+    id: "2",
     name: "Chicken Momo",
+    category: "Momos",
     price: 210,
     rating: 4.4,
     time: "20 min",
@@ -39,8 +21,9 @@ export const foods = [
     description: "Juicy chicken momos with Indo-Bhutan spices.",
   },
   {
-    id: "5",
+    id: "3",
     name: "Cheese Momo",
+    category: "Momos",
     price: 240,
     rating: 4.5,
     time: "20 min",
@@ -48,8 +31,9 @@ export const foods = [
     description: "Cheesy momos with soft filling and crispy outer layer.",
   },
   {
-    id: "6",
+    id: "4",
     name: "Chilli Momo",
+    category: "Momos",
     price: 260,
     rating: 4.6,
     time: "22 min",
@@ -57,8 +41,9 @@ export const foods = [
     description: "Fried momos tossed in spicy chilli sauce.",
   },
   {
-    id: "7",
+    id: "5",
     name: "Dynamite Momo",
+    category: "Momos",
     price: 320,
     rating: 4.7,
     time: "25 min",
@@ -68,8 +53,9 @@ export const foods = [
 
   /* ================= NOODLES ================= */
   {
-    id: "8",
+    id: "6",
     name: "Chowmein",
+    category: "Noodles",
     price: 190,
     rating: 4.2,
     time: "20 min",
@@ -77,8 +63,9 @@ export const foods = [
     description: "Classic Indo-Chinese chowmein with vegetables.",
   },
   {
-    id: "9",
+    id: "7",
     name: "Chicken Chowmein",
+    category: "Noodles",
     price: 240,
     rating: 4.4,
     time: "22 min",
@@ -86,8 +73,9 @@ export const foods = [
     description: "Stir-fried noodles with chicken and sauces.",
   },
   {
-    id: "10",
+    id: "8",
     name: "Hakka Noodles",
+    category: "Noodles",
     price: 240,
     rating: 4.3,
     time: "22 min",
@@ -95,8 +83,9 @@ export const foods = [
     description: "Wok tossed hakka noodles with veggies.",
   },
   {
-    id: "11",
+    id: "9",
     name: "Chicken Hakka Noodles",
+    category: "Noodles",
     price: 280,
     rating: 4.5,
     time: "25 min",
@@ -106,8 +95,9 @@ export const foods = [
 
   /* ================= PASTA ================= */
   {
-    id: "12",
+    id: "10",
     name: "White Sauce Pasta",
+    category: "Pasta",
     price: 340,
     rating: 4.3,
     time: "25 min",
@@ -115,8 +105,9 @@ export const foods = [
     description: "Creamy white sauce pasta with herbs.",
   },
   {
-    id: "13",
+    id: "11",
     name: "Chicken White Sauce Pasta",
+    category: "Pasta",
     price: 390,
     rating: 4.5,
     time: "28 min",
@@ -124,8 +115,9 @@ export const foods = [
     description: "White sauce pasta loaded with chicken.",
   },
   {
-    id: "14",
+    id: "12",
     name: "Red Sauce Pasta",
+    category: "Pasta",
     price: 390,
     rating: 4.4,
     time: "25 min",
@@ -133,8 +125,9 @@ export const foods = [
     description: "Tangy red sauce pasta with Italian seasoning.",
   },
   {
-    id: "15",
+    id: "13",
     name: "Chicken Red Sauce Pasta",
+    category: "Pasta",
     price: 440,
     rating: 4.6,
     time: "28 min",
@@ -144,8 +137,9 @@ export const foods = [
 
   /* ================= BURGER ================= */
   {
-    id: "16",
+    id: "14",
     name: "Veg Burger",
+    category: "Burger",
     price: 180,
     rating: 4.1,
     time: "15 min",
@@ -153,8 +147,9 @@ export const foods = [
     description: "Grilled veg patty with fresh lettuce and sauces.",
   },
   {
-    id: "17",
+    id: "15",
     name: "Chicken Burger",
+    category: "Burger",
     price: 220,
     rating: 4.4,
     time: "18 min",
@@ -164,8 +159,9 @@ export const foods = [
 
   /* ================= SANDWICH ================= */
   {
-    id: "18",
+    id: "16",
     name: "Grilled Veg Sandwich",
+    category: "Sandwich",
     price: 180,
     rating: 4.0,
     time: "15 min",
@@ -173,8 +169,9 @@ export const foods = [
     description: "Grilled sandwich with fresh vegetables.",
   },
   {
-    id: "19",
+    id: "17",
     name: "Grilled Chicken Sandwich",
+    category: "Sandwich",
     price: 240,
     rating: 4.3,
     time: "18 min",
@@ -184,8 +181,9 @@ export const foods = [
 
   /* ================= PIZZA ================= */
   {
-    id: "20",
+    id: "18",
     name: "Veg Pizza",
+    category: "Pizza",
     price: 390,
     rating: 4.3,
     time: "25 min",
@@ -193,8 +191,9 @@ export const foods = [
     description: "Veg pizza topped with cheese and vegetables.",
   },
   {
-    id: "21",
+    id: "19",
     name: "Chicken Pizza",
+    category: "Pizza",
     price: 490,
     rating: 4.6,
     time: "28 min",
@@ -204,8 +203,9 @@ export const foods = [
 
   /* ================= EGG ROLL ================= */
   {
-    id: "22",
+    id: "20",
     name: "Egg Roll",
+    category: "Egg Roll",
     price: 290,
     rating: 4.2,
     time: "15 min",
@@ -213,8 +213,9 @@ export const foods = [
     description: "Egg roll wrapped with sauces and veggies.",
   },
   {
-    id: "23",
+    id: "21",
     name: "Chicken Roll",
+    category: "Egg Roll",
     price: 340,
     rating: 4.4,
     time: "18 min",
