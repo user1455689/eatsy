@@ -42,29 +42,64 @@ button {
     transform: scale(1);
   }
 }
+/* ================= SPLASH SCREEN ================= */
 
-/* Splash Screen */
 .splash-screen {
   position: fixed;
   inset: 0;
-  background: #ff6a3d;
   z-index: 9999;
 
-  display: grid;
-  place-items: center;
+  /* Safe full height on mobile */
+  height: 100svh;
+  width: 100vw;
 
-  /* mobile safe-area fix */
-  padding-bottom: env(safe-area-inset-bottom);
+  background-color: #ff6a3d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* iOS safe areas */
   padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 
-  animation: slideUp 0.9s ease-in-out forwards;
+  /* Exit animation */
+  animation: splashSlideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1)
+    forwards;
   animation-delay: 2s;
 }
 
+/* ================= CONTENT ================= */
+
 .splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
 
-  /* visual center correction */
-  transform: translateY(-5%);
-  animation: fadeIn 0.8s ease-in-out;
+  animation: splashFadeIn 0.8s ease-out;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes splashFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes splashSlideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
