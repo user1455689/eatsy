@@ -10,10 +10,22 @@ import { foods } from "@/data/foods";
 
 export default function HomePage() {
   const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] =
+    useState("All");
 
-  const filteredFoods = foods.filter((food) =>
-    food.name.toLowerCase().includes(search.toLowerCase())
-  );
+  /* ---------------- FILTER LOGIC ---------------- */
+
+  const filteredFoods = foods.filter((food) => {
+    const matchesSearch = food.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesCategory =
+      activeCategory === "All" ||
+      food.category === activeCategory;
+
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="min-h-screen bg-[#FFF5EE] pb-24 px-5 pt-6">
@@ -23,7 +35,7 @@ export default function HomePage() {
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search for food or restaurant"
+        placeholder="Search for food"
         className="
           w-full mb-5 px-4 py-3
           rounded-xl
@@ -37,15 +49,20 @@ export default function HomePage() {
 
       <BannerSlider />
 
-      <CategoryTabs />
+      {/* Category Tabs */}
+      <CategoryTabs
+        activeCategory={activeCategory}
+        onSelectCategory={setActiveCategory}
+      />
 
       <h3 className="font-semibold mt-6 mb-3 text-gray-900">
         Popular Food
       </h3>
 
+      {/* Food Grid */}
       {filteredFoods.length === 0 ? (
         <p className="text-gray-600 text-sm">
-          No food found for "{search}"
+          No food found
         </p>
       ) : (
         <div className="grid grid-cols-2 gap-4">
