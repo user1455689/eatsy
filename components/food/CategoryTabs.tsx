@@ -1,28 +1,46 @@
+"use client";
+
 import { categories } from "@/data/categories";
 
-export default function CategoryTabs() {
+type Props = {
+  activeCategory: string;
+  onSelectCategory: (category: string) => void;
+};
+
+export default function CategoryTabs({
+  activeCategory,
+  onSelectCategory,
+}: Props) {
   return (
     <div className="flex gap-3 overflow-x-auto pb-2">
-      {categories.map((cat) => (
-        <div
-          key={cat.id}
-          className="
-            flex items-center gap-2
-            px-4 py-2
-            bg-white
-            rounded-full
-            shadow
-            text-sm
-            text-gray-700
-            whitespace-nowrap
-            transition
-            active:scale-95
-          "
-        >
-          <span>{cat.icon}</span>
-          <span className="font-medium">{cat.name}</span>
-        </div>
-      ))}
+      {categories.map((cat) => {
+        const isActive = activeCategory === cat.name;
+
+        return (
+          <button
+            key={cat.id}
+            onClick={() => onSelectCategory(cat.name)}
+            className={`
+              flex items-center gap-2
+              px-4 py-2
+              rounded-full
+              whitespace-nowrap
+              text-sm
+              font-medium
+              transition
+              active:scale-95
+              ${
+                isActive
+                  ? "bg-[#FF6A3D] text-white shadow"
+                  : "bg-white text-gray-700 border"
+              }
+            `}
+          >
+            <span>{cat.icon}</span>
+            <span>{cat.name}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
