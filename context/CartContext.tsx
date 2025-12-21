@@ -3,9 +3,10 @@
 import {
   createContext,
   useContext,
-  useEffect,
   useState,
 } from "react";
+
+/* ---------------- TYPES ---------------- */
 
 export type CartItem = {
   id: string;
@@ -26,7 +27,9 @@ type CartContextType = {
 
 /* ---------------- CONTEXT ---------------- */
 
-const CartContext = createContext<CartContextType | null>(null);
+const CartContext = createContext<CartContextType | null>(
+  null
+);
 
 /* ---------------- PROVIDER ---------------- */
 
@@ -35,24 +38,8 @@ export function CartProvider({
 }: {
   children: React.ReactNode;
 }) {
+  // 🟢 Cart exists ONLY in memory
   const [cart, setCart] = useState<CartItem[]>([]);
-
-  /* 🔹 LOAD CART FROM localStorage ON APP LOAD */
-  useEffect(() => {
-    const savedCart = localStorage.getItem("eatsy-cart");
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch {
-        setCart([]);
-      }
-    }
-  }, []);
-
-  /* 🔹 SAVE CART TO localStorage WHENEVER IT CHANGES */
-  useEffect(() => {
-    localStorage.setItem("eatsy-cart", JSON.stringify(cart));
-  }, [cart]);
 
   /* ---------------- ACTIONS ---------------- */
 
@@ -78,23 +65,27 @@ export function CartProvider({
   };
 
   const removeFromCart = (id: string) => {
-    setCart((prev) => prev.filter((i) => i.id !== id));
+    setCart((prev) =>
+      prev.filter((item) => item.id !== id)
+    );
   };
 
   const updateQty = (id: string, qty: number) => {
     setCart((prev) =>
-      prev.map((i) =>
-        i.id === id
-          ? { ...i, quantity: Math.max(1, qty) }
-          : i
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: Math.max(1, qty),
+            }
+          : item
       )
     );
   };
 
-  /* 🔹 CLEAR CART AFTER ORDER */
+  /* 🧹 CLEAR CART (CALL AFTER ORDER SUCCESS) */
   const clearCart = () => {
     setCart([]);
-    localStorage.removeItem("eatsy-cart");
   };
 
   return (

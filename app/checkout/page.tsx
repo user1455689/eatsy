@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CheckoutPage() {
-  const { cart } = useCart();
+  const { cart, clearCart } = useCart();
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -17,26 +17,80 @@ export default function CheckoutPage() {
     0
   );
 
+  // Redirect if cart is empty
   if (cart.length === 0) {
     router.push("/home");
     return null;
   }
 
-  const placeOrder = () => {
+  /* ---------------- SEND ORDER TO MAKE ---------------- */
+  const sendOrderToMake = async () => {
+    try {
+      await fetch(
+        "https://hook.eu1.make.com/js24ep6zbexlcs2g7tifuigvy7v7n1dt",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            orderId: Date.now(),
+            name,
+            phone,
+            address,
+            items: cart.map(
+              (i) =>
+                `${i.name} (${i.size}) x${i.quantity}`
+            ),
+            total,
+            payment: "COD",
+            time: new Date().toLocaleString(),
+          }),
+        }
+      );
+    } catch (error) {
+      console.error("Make webhook error", error);
+    }
+  };
+
+  /* ---------------- SEND ORDER TO WHATSAPP ---------------- */
+  const sendOrderToWhatsApp = () => {
+    const itemsText = cart
+      .map(
+        (i) =>
+          `• ${i.name} (${i.size}) x${i.quantity}`
+      )
+      .join("%0A");
+
+    const message = `
+New Food Order 🍽️
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+
+Items:
+${itemsText}
+
+Total: Rs. ${total}
+Payment: Cash on Delivery
+    `.trim();
+
+    const whatsappUrl = `https://wa.me/9779746571404?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
+  /* ---------------- PLACE ORDER ---------------- */
+  const placeOrder = async () => {
     if (!name || !phone || !address) {
-      alert("Please fill all details");
+      alert("Please fill all delivery details");
       return;
     }
 
-    console.log({
-      name,
-      phone,
-      address,
-      cart,
-      total,
-      payment: "COD",
-    });
-
+    await sendOrderToMake();   // Google Sheets
+    sendOrderToWhatsApp();     // WhatsApp
+    clearCart();               // Clear cart
     router.push("/checkout/success");
   };
 
@@ -47,7 +101,7 @@ export default function CheckoutPage() {
         Checkout
       </h1>
 
-      {/* Customer Info */}
+      {/* Delivery Details */}
       <div className="bg-white rounded-2xl p-4 mb-4 shadow-sm">
         <h3 className="font-semibold mb-3 text-gray-900">
           Delivery Details
@@ -57,46 +111,21 @@ export default function CheckoutPage() {
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="
-            w-full mb-3 px-4 py-3
-            rounded-xl
-            border border-gray-300
-            text-gray-800
-            placeholder-gray-400
-            outline-none
-            focus:border-[#FF6A3D]
-          "
+          className="w-full mb-3 px-4 py-3 rounded-xl border border-gray-300"
         />
 
         <input
           placeholder="Phone Number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="
-            w-full mb-3 px-4 py-3
-            rounded-xl
-            border border-gray-300
-            text-gray-800
-            placeholder-gray-400
-            outline-none
-            focus:border-[#FF6A3D]
-          "
+          className="w-full mb-3 px-4 py-3 rounded-xl border border-gray-300"
         />
 
         <textarea
           placeholder="Delivery Address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          className="
-            w-full px-4 py-3
-            rounded-xl
-            border border-gray-300
-            text-gray-800
-            placeholder-gray-400
-            outline-none
-            resize-none
-            focus:border-[#FF6A3D]
-          "
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 resize-none"
           rows={3}
         />
       </div>
@@ -106,7 +135,6 @@ export default function CheckoutPage() {
         <h3 className="font-semibold mb-2 text-gray-900">
           Payment Method
         </h3>
-
         <div className="flex items-center gap-2 text-[#FF6A3D] font-semibold">
           <input type="radio" checked readOnly />
           <span>Cash on Delivery</span>
@@ -125,16 +153,7 @@ export default function CheckoutPage() {
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
         <button
           onClick={placeOrder}
-          className="
-            w-full
-            bg-[#FF6A3D]
-            text-white
-            py-3
-            rounded-full
-            font-semibold
-            transition
-            active:scale-95
-          "
+          className="w-full bg-[#FF6A3D] text-white py-3 rounded-full font-semibold active:scale-95"
         >
           Place Order (COD)
         </button>
