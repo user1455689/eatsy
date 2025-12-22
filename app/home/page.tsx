@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from "react";
+
 import Header from "@/components/layout/Header";
 import CategoryTabs from "@/components/food/CategoryTabs";
 import FoodCard from "@/components/food/FoodCard";
 import BottomNav from "@/components/layout/BottomNav";
 import BannerSlider from "@/components/home/BannerSlider";
+import PromoPopup from "@/components/ui/PromoPopup";
+
 import { foods } from "@/data/foods";
 
 export default function HomePage() {
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] =
-    useState("All");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   /* ---------------- FILTER LOGIC ---------------- */
 
@@ -28,33 +30,36 @@ export default function HomePage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FFF5EE] pb-24 px-5 pt-6">
+    <div className="min-h-screen bg-[#FFF5EE] pb-24 px-5 pt-6 text-black">
+      {/* ✅ Shows once after splash */}
+      <PromoPopup />
+
+      {/* Header */}
       <Header />
 
-      {/* Search Bar */}
+      {/* Search */}
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search for food"
         className="
           w-full mb-5 px-4 py-3
-          rounded-xl
-          bg-white
-          shadow
-          outline-none
-          text-gray-800
-          placeholder-gray-400
+          rounded-xl bg-white
+          shadow outline-none
+          text-black placeholder-gray-400
         "
       />
 
+      {/* Banners */}
       <BannerSlider />
 
-      {/* Category Tabs */}
+      {/* Categories */}
       <CategoryTabs
         activeCategory={activeCategory}
         onSelectCategory={setActiveCategory}
       />
 
+      {/* Section title */}
       <h3 className="font-semibold mt-6 mb-3 text-gray-900">
         Popular Food
       </h3>
@@ -72,6 +77,7 @@ export default function HomePage() {
         </div>
       )}
 
+      {/* Bottom Navigation */}
       <BottomNav />
     </div>
   );
