@@ -12,7 +12,7 @@ type Food = {
   rating: number;
   time: string;
   image: string;
-  category?: string; // optional, but future-safe
+  category?: string;
 };
 
 type Props = {
@@ -30,8 +30,7 @@ export default function FoodCard({ food }: Props) {
       name: food.name,
       price: food.price,
       image: food.image,
-      quantity: 1,
-      size: "Regular",
+      quantity: 1, // ✅ quantity-only
     });
   };
 
@@ -54,12 +53,7 @@ export default function FoodCard({ food }: Props) {
         <img
           src={food.image}
           alt={food.name}
-          className="
-            w-full
-            h-32
-            object-cover
-            cursor-pointer
-          "
+          className="w-full h-32 object-cover cursor-pointer"
         />
       </Link>
 
@@ -80,12 +74,10 @@ export default function FoodCard({ food }: Props) {
             Rs. {food.price}
           </p>
 
-          {/* Add to cart */}
           <button
             onClick={handleAddToCart}
             className="
-              px-3
-              py-1.5
+              px-3 py-1.5
               rounded-full
               bg-[#FF6A3D]
               text-white
