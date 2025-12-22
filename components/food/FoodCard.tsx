@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { Heart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useFavorites } from "@/context/FavoritesContext";
 
 /* ---------------- TYPES ---------------- */
 
@@ -23,6 +25,7 @@ type Props = {
 
 export default function FoodCard({ food }: Props) {
   const { addToCart } = useCart();
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleAddToCart = () => {
     addToCart({
@@ -46,8 +49,28 @@ export default function FoodCard({ food }: Props) {
         hover:-translate-y-1
         hover:shadow-md
         active:scale-[0.98]
+        relative
       "
     >
+      {/* ❤️ Favorite button */}
+      <button
+        onClick={() => toggleFavorite(food.id)}
+        className="
+          absolute top-2 right-2 z-10
+          bg-white p-1.5 rounded-full
+          shadow transition active:scale-90
+        "
+      >
+        <Heart
+          size={18}
+          className={
+            isFavorite(food.id)
+              ? "fill-red-500 text-red-500"
+              : "text-gray-400"
+          }
+        />
+      </button>
+
       {/* Image → detail page */}
       <Link href={`/food/${food.id}`}>
         <img

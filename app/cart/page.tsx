@@ -11,6 +11,7 @@ export default function CartPage() {
     0
   );
 
+  /* ---------------- EMPTY CART ---------------- */
   if (cart.length === 0) {
     return (
       <div className="h-screen flex flex-col items-center justify-center bg-[#FFF5EE] text-center px-6">
@@ -28,11 +29,24 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF5EE] p-5 pb-32 text-gray-800">
+    <div className="min-h-screen bg-[#FFF5EE] p-5 pb-36 text-gray-800">
       {/* Title */}
-      <h1 className="text-xl font-bold mb-4 text-gray-900">
+      <h1 className="text-xl font-bold mb-2 text-gray-900">
         Your Cart
       </h1>
+
+      {/* Add more items */}
+      <Link
+        href="/home"
+        className="
+          inline-flex items-center gap-1
+          text-sm font-semibold
+          text-[#FF6A3D]
+          mb-4
+        "
+      >
+        + Add more items
+      </Link>
 
       {/* Cart Items */}
       {cart.map((item) => (
@@ -99,21 +113,39 @@ export default function CartPage() {
           <span>Rs. {total}</span>
         </div>
 
-        <Link
-          href="/checkout"
-          className="
-            block text-center
-            bg-[#FF6A3D]
-            text-white
-            py-3
-            rounded-full
-            font-semibold
-            transition
-            active:scale-95
-          "
-        >
-          Proceed to Checkout (COD)
-        </Link>
+        <div className="flex gap-3">
+          {/* Add more food */}
+          <Link
+            href="/home"
+            className="
+              flex-1 text-center
+              border border-[#FF6A3D]
+              text-[#FF6A3D]
+              py-3
+              rounded-full
+              font-semibold
+            "
+          >
+            Add More
+          </Link>
+
+          {/* Checkout */}
+          <Link
+            href="/checkout"
+            className="
+              flex-1 text-center
+              bg-[#FF6A3D]
+              text-white
+              py-3
+              rounded-full
+              font-semibold
+              transition
+              active:scale-95
+            "
+          >
+            Checkout (COD)
+          </Link>
+        </div>
       </div>
     </div>
   );
