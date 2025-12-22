@@ -10,7 +10,7 @@ import {
   calculateDeliveryFee,
 } from "@/utils/delivery";
 
-const WHATSAPP_NUMBER = "9779746571404"; // ✅ your number
+const WHATSAPP_NUMBER = "9779746571404";
 
 export default function CheckoutPage() {
   const { cart, clearCart } = useCart();
@@ -88,9 +88,9 @@ export default function CheckoutPage() {
     const itemsText = cart
       .map(
         (i, idx) =>
-          `${idx + 1}. ${i.name} (${i.size}) x${
-            i.quantity
-          } — Rs. ${i.price * i.quantity}`
+          `${idx + 1}. ${i.name} x${i.quantity} — Rs. ${
+            i.price * i.quantity
+          }`
       )
       .join("\n");
 
@@ -121,11 +121,11 @@ ${itemsText}
 🕒 Time: ${new Date().toLocaleString()}
     `.trim();
 
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       message
     )}`;
 
-    window.open(whatsappUrl, "_blank");
+    window.open(url, "_blank");
   };
 
   /* ---------------- PLACE ORDER ---------------- */
@@ -141,16 +141,14 @@ ${itemsText}
     }
 
     if (serviceBlocked) {
-      alert(
-        "Sorry, delivery is available only within 3 km."
-      );
+      alert("Delivery available only within 3 km.");
       return;
     }
 
     const orderId = Date.now();
     const fullPhone = `+977${phone}`;
 
-    /* OPTIONAL: Send to Google Sheets (Make) */
+    /* Send to Google Sheets */
     await fetch(
       "https://hook.eu1.make.com/js24ep6zbexlcs2g7tifuigvy7v7n1dt",
       {
@@ -163,8 +161,7 @@ ${itemsText}
           address,
           landmark,
           items: cart.map(
-            (i) =>
-              `${i.name} (${i.size}) x${i.quantity}`
+            (i) => `${i.name} x${i.quantity}`
           ),
           subtotal,
           distance: distance?.toFixed(2) + " km",
@@ -176,25 +173,21 @@ ${itemsText}
       }
     );
 
-    /* SEND TO WHATSAPP */
     sendOrderToWhatsApp(orderId, fullPhone);
-
     clearCart();
     router.push("/checkout/success");
   };
 
   return (
     <div className="min-h-screen bg-[#FFF5EE] p-5 pb-28 text-black">
-      <h1 className="text-2xl font-bold mb-4">
-        Checkout
-      </h1>
+      <h1 className="text-2xl font-bold mb-4">Checkout</h1>
 
       <div className="bg-white rounded-2xl p-4 mb-4 shadow">
         <input
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full mb-3 px-4 py-3 rounded-xl border text-black bg-white"
+          className="w-full mb-3 px-4 py-3 rounded-xl border bg-white text-black"
         />
 
         <div className="flex mb-3">
@@ -208,7 +201,7 @@ ${itemsText}
             onChange={(e) =>
               setPhone(e.target.value.replace(/\D/g, ""))
             }
-            className="w-full px-4 py-3 border rounded-r-xl text-black bg-white"
+            className="w-full px-4 py-3 border rounded-r-xl bg-white text-black"
           />
         </div>
 
@@ -221,20 +214,20 @@ ${itemsText}
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           rows={3}
-          className="w-full mb-3 px-4 py-3 rounded-xl border text-black bg-white"
+          className="w-full mb-3 px-4 py-3 rounded-xl border bg-white text-black"
         />
 
         <input
           placeholder="Landmark (optional)"
           value={landmark}
           onChange={(e) => setLandmark(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl border text-black bg-white"
+          className="w-full px-4 py-3 rounded-xl border bg-white text-black"
         />
       </div>
 
       {serviceBlocked && (
         <div className="bg-red-50 text-red-700 p-4 rounded-xl mb-4 font-semibold text-sm">
-          🚫 Delivery available only within 3 km from Indo-Bhutan Cafe.
+          🚫 Delivery available only within 3 km.
         </div>
       )}
 
