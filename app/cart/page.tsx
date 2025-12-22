@@ -37,7 +37,7 @@ export default function CartPage() {
       {/* Cart Items */}
       {cart.map((item) => (
         <div
-          key={`${item.id}-${item.size}`}
+          key={item.id}
           className="bg-white rounded-2xl p-3 mb-3 flex gap-3 shadow-sm"
         >
           {/* Image */}
@@ -52,9 +52,7 @@ export default function CartPage() {
             <h3 className="font-semibold text-sm text-gray-900">
               {item.name}
             </h3>
-            <p className="text-xs text-gray-600">
-              Size: {item.size}
-            </p>
+
             <p className="font-bold text-[#FF6A3D] mt-1">
               Rs. {item.price}
             </p>
@@ -63,7 +61,9 @@ export default function CartPage() {
           {/* Quantity + Remove */}
           <div className="flex flex-col items-center gap-1">
             <button
-              onClick={() => updateQty(item.id, item.quantity + 1)}
+              onClick={() =>
+                updateQty(item.id, item.quantity + 1)
+              }
               className="w-7 h-7 bg-gray-100 text-gray-800 rounded-full font-semibold"
             >
               +
