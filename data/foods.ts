@@ -109,7 +109,7 @@ export const foods = [
     price: 290,
     rating: 4.5,
     time: "24 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/92/e0/df/92e0dffc45e237de0c6b00ed1f472747.jpg",
     description: "Spicy chilli garlic noodles.",
   },
 
@@ -207,7 +207,7 @@ export const foods = [
     price: 210,
     rating: 4.2,
     time: "15 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/3d/5b/92/3d5b929704ebdd3b074842821705068b.jpg",
     description: "Crispy veg pakoda.",
   },
   {
@@ -217,7 +217,7 @@ export const foods = [
     price: 480,
     rating: 4.6,
     time: "20 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/58/a3/fa/58a3fac1143e2d6c9c22895d00c2eea6.jpg",
     description: "Paneer tossed in chilli sauce.",
   },
 
@@ -229,7 +229,7 @@ export const foods = [
     price: 390,
     rating: 4.6,
     time: "20 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/9b/d8/a9/9bd8a95f250850b8aade2d6f55a4dc9b.jpg",
     description: "Spicy chicken chilli.",
   },
   {
@@ -239,7 +239,7 @@ export const foods = [
     price: 490,
     rating: 4.4,
     time: "18 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/a3/9b/33/a39b336ff2fe2dc3367cde69f7ec0bee.jpg",
     description: "Crispy chicken nuggets.",
   },
 
@@ -273,7 +273,7 @@ export const foods = [
     price: 410,
     rating: 4.3,
     time: "25 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/b0/96/23/b09623357dd96f64242e391b00fae7fe.jpg",
     description: "Classic onion and capsicum pizza.",
   },
   {
@@ -283,7 +283,7 @@ export const foods = [
     price: 510,
     rating: 4.6,
     time: "28 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/2c/6f/45/2c6f458e1008a355f99440e397caee20.jpg",
     description: "Chicken chilli pizza with cheese.",
   },
 
