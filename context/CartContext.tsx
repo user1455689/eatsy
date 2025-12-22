@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { createContext, useContext, useState } from "react";
 
 /* ---------------- TYPES ---------------- */
 
@@ -14,7 +10,6 @@ export type CartItem = {
   price: number;
   image: string;
   quantity: number;
-  size: string;
 };
 
 type CartContextType = {
@@ -27,9 +22,7 @@ type CartContextType = {
 
 /* ---------------- CONTEXT ---------------- */
 
-const CartContext = createContext<CartContextType | null>(
-  null
-);
+const CartContext = createContext<CartContextType | null>(null);
 
 /* ---------------- PROVIDER ---------------- */
 
@@ -38,20 +31,18 @@ export function CartProvider({
 }: {
   children: React.ReactNode;
 }) {
-  // 🟢 Cart exists ONLY in memory
+  // 🟢 In-memory cart only
   const [cart, setCart] = useState<CartItem[]>([]);
 
   /* ---------------- ACTIONS ---------------- */
 
   const addToCart = (item: CartItem) => {
     setCart((prev) => {
-      const existing = prev.find(
-        (i) => i.id === item.id && i.size === item.size
-      );
+      const existing = prev.find((i) => i.id === item.id);
 
       if (existing) {
         return prev.map((i) =>
-          i.id === item.id && i.size === item.size
+          i.id === item.id
             ? {
                 ...i,
                 quantity: i.quantity + item.quantity,
@@ -65,25 +56,20 @@ export function CartProvider({
   };
 
   const removeFromCart = (id: string) => {
-    setCart((prev) =>
-      prev.filter((item) => item.id !== id)
-    );
+    setCart((prev) => prev.filter((i) => i.id !== id));
   };
 
   const updateQty = (id: string, qty: number) => {
     setCart((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              quantity: Math.max(1, qty),
-            }
-          : item
+      prev.map((i) =>
+        i.id === id
+          ? { ...i, quantity: Math.max(1, qty) }
+          : i
       )
     );
   };
 
-  /* 🧹 CLEAR CART (CALL AFTER ORDER SUCCESS) */
+  /* 🧹 CLEAR CART AFTER ORDER */
   const clearCart = () => {
     setCart([]);
   };
