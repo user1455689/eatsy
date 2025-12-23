@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const PROMO_IMAGE_URL =
-  "https://i.imgur.com/19b9NXQ.png"; // 👈 paste banner image link
+  "https://i.imgur.com/SAFP3ku.png"; // 👈 paste banner image link
 
 const PROMO_LINK = "/offers"; // optional: change to WhatsApp / food page
 
