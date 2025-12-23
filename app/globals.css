@@ -1,29 +1,50 @@
 @import "tailwindcss";
 
+/* ================= THEME VARIABLES ================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f0fdf4;   /* light green */
+  --foreground: #14532d;   /* dark green */
+
+  --primary: #16a34a;
+  --secondary: #dcfce7;
+  --accent: #4ade80;
+  --muted: #6b7280;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/* ================= DARK MODE (OPTIONAL) ================= */
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #052e16;
+    --foreground: #ecfdf5;
+
+    --primary: #22c55e;
+    --secondary: #064e3b;
+    --accent: #4ade80;
   }
 }
+
+/* ================= GLOBAL ================= */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 * {
   -webkit-tap-highlight-color: transparent;
 }
@@ -31,6 +52,9 @@ body {
 button {
   transition: transform 0.15s ease;
 }
+
+/* ================= ANIMATIONS ================= */
+
 @keyframes softPulse {
   0% {
     transform: scale(1);
@@ -42,6 +66,7 @@ button {
     transform: scale(1);
   }
 }
+
 /* ================= SPLASH SCREEN ================= */
 
 .splash-screen {
@@ -49,27 +74,24 @@ button {
   inset: 0;
   z-index: 9999;
 
-  /* Safe full height on mobile */
   height: 100svh;
   width: 100vw;
 
-  background-color: #ff6a3d;
+  background-color: var(--primary);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* iOS safe areas */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 
-  /* Exit animation */
   animation: splashSlideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1)
     forwards;
   animation-delay: 2s;
 }
 
-/* ================= CONTENT ================= */
+/* ================= SPLASH CONTENT ================= */
 
 .splash-content {
   display: flex;
@@ -79,12 +101,11 @@ button {
 
   text-align: center;
 
-  /* visual center correction */
   transform: translateY(-5%);
-  animation: fadeIn 0.8s ease-in-out;
+  animation: splashFadeIn 0.8s ease-in-out;
 }
 
-/* ================= ANIMATIONS ================= */
+/* ================= SPLASH ANIMATIONS ================= */
 
 @keyframes splashFadeIn {
   from {
