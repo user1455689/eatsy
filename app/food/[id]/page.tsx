@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { foods } from "@/data/foods";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { Minus, Plus, ArrowLeft } from "lucide-react";
 
 export default function FoodDetailPage() {
   const { id } = useParams();
@@ -16,98 +17,153 @@ export default function FoodDetailPage() {
 
   if (!food) {
     return (
-      <div className="p-6 text-black">
+      <div className="min-h-screen flex items-center justify-center text-gray-700">
         Food not found
       </div>
     );
   }
 
-  const cartItem = {
-    id: food.id,
-    name: food.name,
-    price: food.price,
-    image: food.image,
-    quantity: qty,
-    size: "Regular", // ✅ fixed value (safe)
+  const handleAdd = () => {
+    addToCart({
+      id: food.id,
+      name: food.name,
+      price: food.price,
+      image: food.image,
+      quantity: qty,
+    });
   };
 
   return (
-    <div className="pb-28 bg-[#FFF5EE] min-h-screen text-black">
-      {/* IMAGE */}
+    <div className="bg-[#FFF5EE] min-h-screen pb-28">
+      {/* 🔝 IMAGE HEADER */}
       <div className="relative">
         <img
           src={food.image}
           alt={food.name}
-          className="w-full h-64 object-cover"
+          className="w-full h-72 object-cover"
         />
 
         <button
           onClick={() => router.back()}
-          className="absolute top-4 left-4 bg-white p-2 rounded-full shadow"
+          className="
+            absolute top-4 left-4
+            bg-white/90 backdrop-blur
+            p-2 rounded-full shadow
+            active:scale-95
+          "
         >
-          ←
+          <ArrowLeft size={20} />
         </button>
       </div>
 
-      {/* CONTENT */}
+      {/* 📄 CONTENT */}
       <div className="p-5">
-        <h1 className="text-2xl font-bold">
+        {/* TITLE */}
+        <h1 className="text-2xl font-bold text-gray-900">
           {food.name}
         </h1>
 
-        <div className="text-sm text-gray-600 mt-1">
-          ⭐ {food.rating} • {food.time}
+        {/* META */}
+        <div className="flex items-center gap-3 text-sm text-gray-600 mt-1">
+          <span>⭐ {food.rating}</span>
+          <span>•</span>
+          <span>{food.time}</span>
         </div>
 
-        <p className="mt-4 text-sm text-gray-700 leading-relaxed">
+        {/* PRICE */}
+        <p className="mt-3 text-xl font-bold text-[#16A34A]">
+          Rs. {food.price}
+        </p>
+
+        {/* DESCRIPTION */}
+        <p className="mt-4 text-gray-700 text-sm leading-relaxed">
           {food.description}
         </p>
 
         {/* QUANTITY */}
-        <h3 className="mt-6 font-semibold">
-          Quantity
-        </h3>
+        <div className="mt-6">
+          <h3 className="font-semibold text-gray-900 mb-2">
+            Quantity
+          </h3>
 
-        <div className="flex items-center gap-5 mt-3">
-          <button
-            onClick={() =>
-              setQty((q) => Math.max(1, q - 1))
-            }
-            className="w-9 h-9 rounded-full bg-white shadow text-xl"
-          >
-            −
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setQty((q) => Math.max(1, q - 1))}
+              className="
+                w-10 h-10
+                rounded-full
+                bg-white
+                shadow
+                flex items-center justify-center
+                active:scale-95
+              "
+            >
+              <Minus size={16} />
+            </button>
 
-          <span className="text-lg font-semibold">
-            {qty}
-          </span>
+            <span className="text-lg font-semibold">
+              {qty}
+            </span>
 
-          <button
-            onClick={() => setQty((q) => q + 1)}
-            className="w-9 h-9 rounded-full bg-white shadow text-xl"
-          >
-            +
-          </button>
+            <button
+              onClick={() => setQty((q) => q + 1)}
+              className="
+                w-10 h-10
+                rounded-full
+                bg-white
+                shadow
+                flex items-center justify-center
+                active:scale-95
+              "
+            >
+              <Plus size={16} />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* STICKY ACTION BAR */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4 flex gap-3">
+      {/* 🛒 STICKY ACTION BAR */}
+      <div
+        className="
+          fixed bottom-0 left-0 right-0
+          bg-white
+          border-t
+          p-4
+          flex gap-3
+          z-50
+        "
+      >
         <button
-          onClick={() => addToCart(cartItem)}
-          className="flex-1 border border-[#FF6A3D] text-[#FF6A3D] rounded-full py-3 font-semibold active:scale-95"
+          onClick={handleAdd}
+          className="
+            flex-1
+            border border-[#16A34A]
+            text-[#16A34A]
+            rounded-full
+            py-3
+            font-semibold
+            active:scale-95
+          "
         >
           Add to Cart
         </button>
 
         <button
           onClick={() => {
-            addToCart(cartItem);
+            handleAdd();
             router.push("/cart");
           }}
-          className="flex-1 bg-[#FF6A3D] text-white rounded-full py-3 font-semibold active:scale-95"
+          className="
+            flex-1
+            bg-[#16A34A]
+            text-white
+            rounded-full
+            py-3
+            font-semibold
+            active:scale-95
+          "
         >
-          Order Now (COD)
+          Order Now
         </button>
       </div>
     </div>
