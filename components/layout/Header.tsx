@@ -1,77 +1,89 @@
 "use client";
 
+import { useProfile } from "@/context/ProfileContext";
 import { useEffect, useState } from "react";
 
 export default function Header() {
-  const [location, setLocation] = useState("Detecting location...");
+  const { profile } = useProfile();
 
+  const [location, setLocation] = useState(
+    "Detecting location..."
+  );
+  const [greeting, setGreeting] = useState(
+    "Hello"
+  );
+
+  /* ---------------- TIME-BASED GREETING ---------------- */
+  useEffect(() => {
+    const hour = new Date().getHours();
+
+    if (hour >= 5 && hour < 12) {
+      setGreeting("Good Morning ☀️");
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting("Good Afternoon 🌤️");
+    } else if (hour >= 17 && hour < 22) {
+      setGreeting("Good Evening 🌆");
+    } else {
+      setGreeting("Good Night 🌙");
+    }
+  }, []);
+
+  /* ---------------- LOCATION DETECTION ---------------- */
   useEffect(() => {
     if (!navigator.geolocation) {
-      setLocation("Location not supported");
+      setLocation("Your location");
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        const { latitude, longitude } = position.coords;
+        const { latitude, longitude } =
+          position.coords;
 
         try {
           const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
           );
           const data = await res.json();
 
           const city =
-            data.address.city ||
-            data.address.town ||
-            data.address.village ||
+            data.address?.city ||
+            data.address?.town ||
+            data.address?.village ||
             "Your area";
 
           setLocation(city);
         } catch {
-          setLocation("Your location");
+          setLocation("Your area");
         }
       },
       () => {
-        setLocation("Kathmandu, Nepal");
+        setLocation("Kathmandu");
       }
     );
   }, []);
 
   return (
-    <div className="mb-5">
-      {/* Top row: Logo + Profile */}
-      <div className="flex items-center justify-between mb-2">
-        {/* Logo + Name */}
-        <div className="flex items-center gap-3">
-          {/* Logo */}
-          <div className="w-10 h-10 rounded-xl bg-[#FF6A3D] text-white flex items-center justify-center font-bold text-lg shadow">
-            E
-          </div>
+    <div className="flex items-center justify-between mb-5">
+      {/* LEFT: Greeting + Location */}
+      <div>
+        {/* 👋 Greeting */}
+        <p className="text-sm text-gray-600">
+          {greeting},{" "}
+          <span className="font-medium">
+            {profile?.name || "Guest"}
+          </span>
+        </p>
 
-          {/* Restaurant Name */}
-          <div>
-            <h2 className="font-bold text-gray-900 leading-tight">
-              Eatsy
-            </h2>
-            <p className="text-xs text-gray-500">
-              Food Delivery
-            </p>
-          </div>
-        </div>
-
-        {/* Profile */}
-        <div className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center">
-          👤
+        {/* 📍 Location */}
+        <div className="flex items-center gap-1 text-sm text-gray-800 font-semibold">
+          📍 {location}
         </div>
       </div>
 
-      {/* Location */}
-      <div>
-        <p className="text-xs text-gray-500">Deliver to</p>
-        <h3 className="font-semibold text-gray-900">
-          {location}
-        </h3>
+      {/* RIGHT: Logo / Avatar */}
+      <div className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center">
+        🍽️
       </div>
     </div>
   );

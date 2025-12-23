@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { CartProvider } from "@/context/CartContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
+import { ProfileProvider } from "@/context/ProfileContext";
 
 export default function RootLayout({
   children,
@@ -11,11 +12,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#FFF5EE] min-h-screen text-gray-800 antialiased">
-        <CartProvider>
+        {/* 🧠 Profile → global user info */}
+        <ProfileProvider>
+          {/* ❤️ Favorites → food likes */}
           <FavoritesProvider>
-            {children}
+            {/* 🛒 Cart → order items */}
+            <CartProvider>
+              {children}
+            </CartProvider>
           </FavoritesProvider>
-        </CartProvider>
+        </ProfileProvider>
       </body>
     </html>
   );

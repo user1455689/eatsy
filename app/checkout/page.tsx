@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import { useProfile } from "@/context/ProfileContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -14,6 +15,7 @@ const WHATSAPP_NUMBER = "9779746571404";
 
 export default function CheckoutPage() {
   const { cart, clearCart } = useCart();
+  const { profile } = useProfile(); // ✅ NEW
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -30,6 +32,16 @@ export default function CheckoutPage() {
     (sum, i) => sum + i.price * i.quantity,
     0
   );
+
+  /* ---------------- AUTO-FILL FROM PROFILE ---------------- */
+  useEffect(() => {
+    if (!profile) return;
+
+    setName(profile.name || "");
+    setPhone(profile.phone || "");
+    setAddress(profile.address || "");
+    setLandmark(profile.landmark || "");
+  }, [profile]);
 
   /* ---------------- REDIRECT IF CART EMPTY ---------------- */
   useEffect(() => {
@@ -62,19 +74,22 @@ export default function CheckoutPage() {
           setDeliveryFee(calculateDeliveryFee(d));
         }
 
-        try {
-          const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-          );
-          const data = await res.json();
-          setAddress(data.display_name || "");
-        } catch {}
+        // Only auto-fill address if profile doesn't already have one
+        if (!profile?.address) {
+          try {
+            const res = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+            );
+            const data = await res.json();
+            setAddress(data.display_name || "");
+          } catch {}
+        }
 
         setLoadingLocation(false);
       },
       () => setLoadingLocation(false)
     );
-  }, []);
+  }, [profile]);
 
   /* ---------------- VALIDATIONS ---------------- */
   const isValidPhone = (p: string) =>
@@ -148,7 +163,7 @@ ${itemsText}
     const orderId = Date.now();
     const fullPhone = `+977${phone}`;
 
-    /* Send to Google Sheets */
+    // Send to Google Sheets (Make)
     await fetch(
       "https://hook.eu1.make.com/js24ep6zbexlcs2g7tifuigvy7v7n1dt",
       {
@@ -180,7 +195,9 @@ ${itemsText}
 
   return (
     <div className="min-h-screen bg-[#FFF5EE] p-5 pb-28 text-black">
-      <h1 className="text-2xl font-bold mb-4">Checkout</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Checkout
+      </h1>
 
       <div className="bg-white rounded-2xl p-4 mb-4 shadow">
         <input
