@@ -17,7 +17,7 @@ export const foods = [
     price: 220,
     rating: 4.4,
     time: "20 min",
-    image: "https://i.pinimg.com/736x/95/f2/3a/95f23a18f3b656ceea29fdcd522995a1.jpg",
+    image: "https://i.pinimg.com/736x/a9/49/2b/a9492b09542e23ee2d96ccc98bd64e85.jpg",
     description: "Juicy chicken momos with Indo-Bhutan spices.",
   },
   {
@@ -37,7 +37,7 @@ export const foods = [
     price: 280,
     rating: 4.6,
     time: "22 min",
-    image: "https://i.pinimg.com/736x/2a/ac/20/2aac2026b3d1095799f35224c3ddc7a5.jpg",
+    image: "https://i.pinimg.com/1200x/97/0f/ad/970fad6833f9088cedab06751d907f97.jpg",
     description: "Fried momos tossed in spicy chilli sauce.",
   },
   {
@@ -69,7 +69,7 @@ export const foods = [
     price: 190,
     rating: 4.2,
     time: "20 min",
-    image: "https://i.pinimg.com/736x/fc/04/68/fc0468200749fcc17af2fb600d22c906.jpg",
+    image: "https://i.pinimg.com/1200x/03/49/71/0349716798a4aec7506f338db1823497.jpg",
     description: "Classic veg chowmein.",
   },
   {
@@ -79,7 +79,7 @@ export const foods = [
     price: 240,
     rating: 4.4,
     time: "22 min",
-    image: "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
+    image: "https://i.pinimg.com/1200x/a4/f7/03/a4f70319a4b2aa5ae47931b76ef738b8.jpg",
     description: "Chicken chowmein with Indo-Chinese flavours.",
   },
   {
