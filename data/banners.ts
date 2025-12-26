@@ -14,7 +14,7 @@ export const banners = [
   {
     id: 3,
     image:
-      "https://i.pinimg.com/1200x/61/73/cd/6173cd511da89111bccf323b0466e807.jpg",
+      "https://i.pinimg.com/1200x/cc/e6/c9/cce6c90c01d9aca9eb3f9ae80fe014ee.jpg",
     link: "/food/3",
   },
 ];
