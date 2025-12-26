@@ -42,7 +42,7 @@ export const foods = [
   },
   {
     id: "m5",
-    name: "Chicken Creamy Momo (Veg)",
+    name: "Creamy Momo (Veg)",
     category: "Momos",
     price: 310,
     rating: 4.6,
@@ -52,16 +52,6 @@ export const foods = [
   },
   {
     id: "m6",
-    name: "Veg Creamy Momo (Veg)",
-    category: "Momos",
-    price: 260,
-    rating: 4.6,
-    time: "22 min",
-    image: "/images/placeholder.jpg",
-    description: "Momos smothered in a rich, white creamy fusion sauce.",
-  },
-  {
-    id: "m7",
     name: "Veg Dynamite Momo (Veg)",
     category: "Momos",
     price: 290,
@@ -72,7 +62,7 @@ export const foods = [
   },
 
   {
-    id: "m8",
+    id: "m7",
     name: "Chicken Dynamite Momo (Non-Veg)",
     category: "Momos",
     price: 340,
@@ -82,8 +72,7 @@ export const foods = [
     description: "Extra spicy momos for those who love a fiery kick.",
   },
 
-[
-  // ---------------- VEG ----------------
+  /* ================= NOODLES ================= */
   {
     id: "n1",
     name: "Chowmein (Veg)",
@@ -116,14 +105,14 @@ export const foods = [
   },
   {
     id: "n4",
-    name: "Keema Noodles (Chicken)",
+    name: "Keema Noodles",
     category: "Noodles",
     price: 280,
     rating: 4.5,
     time: "25 min",
     image: "https://i.pinimg.com/736x/89/5d/f5/895df5e1d6f298c0f0a196d8f6795aa9.jpg",
     description: "Noodles topped with spicy minced chicken keema.",
-   },
+  },
   {
     id: "n5",
     name: "Chilli Garlic Noodles (Veg)",
@@ -144,16 +133,6 @@ export const foods = [
     image: "/images/placeholder.jpg",
     description: "Signature Indo-Bhutan cafe special noodles.",
   },
-  {
-    id: "n7",
-    name: "Chicken Jhol Thukpa (Non Veg)",
-    category: "Noodles",
-    price: 290,
-    rating: 4.4,
-    time: "22 min",
-    image: "https://i.pinimg.com/736x/93/0b/ce/930bce04ccd794b0f8bfab12536456cb.jpg",
-    description: "Tibetan-style noodle soup with a flavorful spiced broth.",
-  },
 
   /* ================= PASTA ================= */
   {
@@ -168,16 +147,6 @@ export const foods = [
   },
   {
     id: "p2",
-    name: "Chicken White Sauce Pasta (Non Veg)",
-    category: "Pasta",
-    price: 410,
-    rating: 4.3,
-    time: "25 min",
-    image: "https://i.pinimg.com/1200x/37/70/ef/3770eff090c9b0ffa164cc7cd8ee43fe.jpg",
-    description: "Pasta cooked in a smooth, cheesy bechamel sauce.",
-  },
-  {
-    id: "p3",
     name: "Red Sauce Pasta (Veg)",
     category: "Pasta",
     price: 390,
@@ -186,36 +155,26 @@ export const foods = [
     image: "https://i.pinimg.com/1200x/d4/af/ae/d4afaea8a8793de367d324501f016638.jpg",
     description: "Pasta tossed in a tangy and spicy tomato basil sauce.",
   },
-   {
-    id: "p4",
-    name: "Chicken Red Sauce Pasta (Non Veg)",
-    category: "Pasta",
-    price: 450,
-    rating: 4.4,
-    time: "25 min",
-    image: "https://i.pinimg.com/1200x/d9/11/f8/d911f8fc5102409131814aa4ca0139d7.jpg",
-    description: "Pasta tossed in a tangy and spicy tomato basil sauce.",
-  },
 
   /* ================= RICE FUSION ================= */
   {
     id: "rf1",
     name: "Fried Rice (Veg)",
     category: "Rice",
-    price: 250,
+    price: 210,
     rating: 4.1,
     time: "15 min",
-    image: "https://i.pinimg.com/1200x/ef/9b/ba/ef9bba676ac73c9f727db77d40d07ddf.jpg",
+    image: "/images/placeholder.jpg",
     description: "Classic veg fried rice cooked with aromatic basmati.",
   },
   {
     id: "rf2",
-    name: "Chicken Fried Rice",
+    name: "Dragon Chicken Rice",
     category: "Rice",
-    price: 310,
+    price: 420,
     rating: 4.7,
     time: "25 min",
-    image: "https://i.pinimg.com/1200x/46/97/2a/46972ab18a5cbfa51ddad6b23879025f.jpg",
+    image: "/images/placeholder.jpg",
     description: "Spicy fusion rice served with fiery dragon chicken strips.",
   },
 
@@ -234,7 +193,7 @@ export const foods = [
     id: "b2",
     name: "Chicken Burger",
     category: "Burger",
-    price: 250,
+    price: 290,
     rating: 4.4,
     time: "18 min",
     image: "https://i.pinimg.com/736x/5f/82/e3/5f82e30c4a237be5a7450981997fc399.jpg",
@@ -289,7 +248,7 @@ export const foods = [
     price: 790,
     rating: 4.9,
     time: "30 min",
-    image: "https://i.pinimg.com/736x/7b/cf/b6/7bcfb62de522fa909e856a0e79542f5b.jpg",
+    image: "/images/placeholder.jpg",
     description: "Triple cheese blend for the ultimate indulgence.",
   },
 
@@ -301,10 +260,39 @@ export const foods = [
     price: 240,
     rating: 4.2,
     time: "12 min",
-    image: "https://i.pinimg.com/736x/6c/01/b9/6c01b9368c891b48c37d9c7974b8adf6.jpg",
+    image: "/images/placeholder.jpg",
     description: "Perfectly salted, golden crispy fries.",
   },
-  
+  {
+    id: "qb2",
+    name: "Aloo Dum",
+    category: "Quick Bites",
+    price: 290,
+    rating: 4.5,
+    time: "15 min",
+    image: "/images/placeholder.jpg",
+    description: "Spicy and flavorful mountain-style potato dish.",
+  },
+  {
+    id: "qb3",
+    name: "Corn Dog",
+    category: "Quick Bites",
+    price: 170,
+    rating: 4.3,
+    time: "15 min",
+    image: "/images/placeholder.jpg",
+    description: "Sausage on a stick, dipped in corn batter and fried.",
+  },
+  {
+    id: "vb1",
+    name: "Veg Pokada",
+    category: "Veg Bites",
+    price: 210,
+    rating: 4.2,
+    time: "15 min",
+    image: "https://i.pinimg.com/1200x/3d/5b/92/3d5b929704ebdd3b074842821705068b.jpg",
+    description: "Assorted vegetable fritters.",
+  },
   {
     id: "vb2",
     name: "Paneer Chilli",
@@ -334,7 +322,7 @@ export const foods = [
     price: 430,
     rating: 4.5,
     time: "22 min",
-    image: "https://i.pinimg.com/1200x/cc/1d/3c/cc1d3ce7d2c91ebea0a497b1cec9cfce.jpg",
+    image: "/images/placeholder.jpg",
     description: "Crunchy fried chicken seasoned with house spices.",
   },
 
