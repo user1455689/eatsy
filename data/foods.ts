@@ -171,7 +171,6 @@ export const foods = [
     time: "22 min",
     image: "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
     description: "Classic stir-fried noodles with juicy chicken pieces.",
-    type: "non-veg",
   },
   {
     id: "n2-nv",
@@ -184,6 +183,7 @@ export const foods = [
     description: "Hearty Tibetan noodle soup with tender chicken in rich broth.",
     type: "non-veg",
   },
+  
   {
     id: "n3-nv",
     name: "Hakka Noodles (Chicken)",
@@ -191,8 +191,8 @@ export const foods = [
     price: 290,
     rating: 4.5,
     time: "24 min",
-    image: "https://i.pinimg.com/1200x/e7/c5/aa/e7c5aaf9d363c7e7c8666e8408d278a0.jpg,
-    description: "Wok-tossed Hakka noodles with seasoned chicken strips.",
+    image: "https://i.pinimg.com/1200x/e7/c5/aa/e7c5aaf9d363c7e7c8666e8408d278a0.jpg",
+    description:"Wok-tossed Hakka noodles with seasoned chicken strips.",
     type: "non-veg",
   },
   {
@@ -204,7 +204,6 @@ export const foods = [
     time: "25 min",
     image: "https://i.pinimg.com/1200x/a2/a5/8c/a2a58c02faa59ac99a0fd8a8f4911d86.jpg",
     description: "Spicy chilli garlic noodles tossed with succulent chicken.",
-    type: "non-veg",
   },
 
   /* ================= PASTA ================= */
