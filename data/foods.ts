@@ -82,7 +82,8 @@ export const foods = [
     description: "Extra spicy momos for those who love a fiery kick.",
   },
 
-  /* ================= NOODLES ================= */
+[
+  // ---------------- VEG ----------------
   {
     id: "n1",
     name: "Chowmein (Veg)",
@@ -92,6 +93,7 @@ export const foods = [
     time: "20 min",
     image: "https://i.pinimg.com/1200x/03/49/71/0349716798a4aec7506f338db1823497.jpg",
     description: "Classic stir-fried noodles with fresh garden vegetables.",
+    type: "veg",
   },
   {
     id: "n2",
@@ -102,6 +104,7 @@ export const foods = [
     time: "22 min",
     image: "https://i.pinimg.com/736x/93/0b/ce/930bce04ccd794b0f8bfab12536456cb.jpg",
     description: "Tibetan-style noodle soup with a flavorful spiced broth.",
+    type: "veg",
   },
   {
     id: "n3",
@@ -112,16 +115,18 @@ export const foods = [
     time: "22 min",
     image: "https://i.pinimg.com/1200x/a0/62/b7/a062b7046e8d291c9417a99e777cb121.jpg",
     description: "Wok-tossed noodles in authentic Hakka style.",
+    type: "veg",
   },
   {
     id: "n4",
-    name: "Keema Noodles",
+    name: "Keema Noodles (Chicken)",
     category: "Noodles",
     price: 280,
     rating: 4.5,
     time: "25 min",
     image: "https://i.pinimg.com/736x/89/5d/f5/895df5e1d6f298c0f0a196d8f6795aa9.jpg",
     description: "Noodles topped with spicy minced chicken keema.",
+    type: "non-veg",
   },
   {
     id: "n5",
@@ -132,6 +137,7 @@ export const foods = [
     time: "24 min",
     image: "https://i.pinimg.com/1200x/92/e0/df/92e0dffc45e237de0c6b00ed1f472747.jpg",
     description: "Noodles tossed with burnt garlic and red chilli flakes.",
+    type: "veg",
   },
   {
     id: "n6",
@@ -142,6 +148,7 @@ export const foods = [
     time: "25 min",
     image: "/images/placeholder.jpg",
     description: "Signature Indo-Bhutan cafe special noodles.",
+    type: "veg",
   },
   {
     id: "n7",
@@ -152,6 +159,52 @@ export const foods = [
     time: "22 min",
     image: "https://i.pinimg.com/736x/93/0b/ce/930bce04ccd794b0f8bfab12536456cb.jpg",
     description: "Tibetan-style noodle soup with a flavorful spiced broth.",
+  },
+
+  // ---------------- NON-VEG ----------------
+  {
+    id: "n1-nv",
+    name: "Chowmein (Chicken)",
+    category: "Noodles",
+    price: 240,
+    rating: 4.4,
+    time: "22 min",
+    image: "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
+    description: "Classic stir-fried noodles with juicy chicken pieces.",
+    type: "non-veg",
+  },
+  {
+    id: "n2-nv",
+    name: "Jhol Thukpa (Chicken)",
+    category: "Noodles",
+    price: 290,
+    rating: 4.6,
+    time: "24 min",
+    image: "https://i.pinimg.com/736x/49/a7/c1/49a7c12ae908df04ec022548f40d62fe.jpg",
+    description: "Hearty Tibetan noodle soup with tender chicken in rich broth.",
+    type: "non-veg",
+  },
+  {
+    id: "n3-nv",
+    name: "Hakka Noodles (Chicken)",
+    category: "Noodles",
+    price: 290,
+    rating: 4.5,
+    time: "24 min",
+    image: "https://i.pinimg.com/1200x/e7/c5/aa/e7c5aaf9d363c7e7c8666e8408d278a0.jpg,
+    description: "Wok-tossed Hakka noodles with seasoned chicken strips.",
+    type: "non-veg",
+  },
+  {
+    id: "n5-nv",
+    name: "Chilli Garlic Noodles (Chicken)",
+    category: "Noodles",
+    price: 310,
+    rating: 4.6,
+    time: "25 min",
+    image: "https://i.pinimg.com/1200x/a2/a5/8c/a2a58c02faa59ac99a0fd8a8f4911d86.jpg",
+    description: "Spicy chilli garlic noodles tossed with succulent chicken.",
+    type: "non-veg",
   },
 
   /* ================= PASTA ================= */
@@ -288,7 +341,7 @@ export const foods = [
     price: 790,
     rating: 4.9,
     time: "30 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/7b/cf/b6/7bcfb62de522fa909e856a0e79542f5b.jpg",
     description: "Triple cheese blend for the ultimate indulgence.",
   },
 
@@ -300,39 +353,10 @@ export const foods = [
     price: 240,
     rating: 4.2,
     time: "12 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/736x/6c/01/b9/6c01b9368c891b48c37d9c7974b8adf6.jpg",
     description: "Perfectly salted, golden crispy fries.",
   },
-  {
-    id: "qb2",
-    name: "Aloo Dum",
-    category: "Quick Bites",
-    price: 290,
-    rating: 4.5,
-    time: "15 min",
-    image: "/images/placeholder.jpg",
-    description: "Spicy and flavorful mountain-style potato dish.",
-  },
-  {
-    id: "qb3",
-    name: "Corn Dog",
-    category: "Quick Bites",
-    price: 170,
-    rating: 4.3,
-    time: "15 min",
-    image: "/images/placeholder.jpg",
-    description: "Sausage on a stick, dipped in corn batter and fried.",
-  },
-  {
-    id: "vb1",
-    name: "Veg Pokada",
-    category: "Veg Bites",
-    price: 210,
-    rating: 4.2,
-    time: "15 min",
-    image: "https://i.pinimg.com/1200x/3d/5b/92/3d5b929704ebdd3b074842821705068b.jpg",
-    description: "Assorted vegetable fritters.",
-  },
+  
   {
     id: "vb2",
     name: "Paneer Chilli",
@@ -362,7 +386,7 @@ export const foods = [
     price: 430,
     rating: 4.5,
     time: "22 min",
-    image: "/images/placeholder.jpg",
+    image: "https://i.pinimg.com/1200x/cc/1d/3c/cc1d3ce7d2c91ebea0a497b1cec9cfce.jpg",
     description: "Crunchy fried chicken seasoned with house spices.",
   },
 
