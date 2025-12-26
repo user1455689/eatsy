@@ -155,49 +155,6 @@ export const foods = [
     description: "Tibetan-style noodle soup with a flavorful spiced broth.",
   },
 
-  // ---------------- NON-VEG ----------------
-  {
-    id: "n1-nv",
-    name: "Chowmein (Chicken)",
-    category: "Noodles",
-    price: 240,
-    rating: 4.4,
-    time: "22 min",
-    image: "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
-    description: "Classic stir-fried noodles with juicy chicken pieces.",
-  },
-  {
-    id: "n2-nv",
-    name: "Jhol Thukpa (Chicken)",
-    category: "Noodles",
-    price: 290,
-    rating: 4.6,
-    time: "24 min",
-    image: "https://i.pinimg.com/736x/49/a7/c1/49a7c12ae908df04ec022548f40d62fe.jpg",
-    description: "Hearty Tibetan noodle soup with tender chicken in rich broth.",
-  },
-  
-  {
-    id: "n3-nv",
-    name: "Hakka Noodles (Chicken)",
-    category: "Noodles",
-    price: 290,
-    rating: 4.5,
-    time: "24 min",
-    image: "https://i.pinimg.com/1200x/e7/c5/aa/e7c5aaf9d363c7e7c8666e8408d278a0.jpg",
-    description:"Wok-tossed Hakka noodles with seasoned chicken strips.",
-  },
-  {
-    id: "n5-nv",
-    name: "Chilli Garlic Noodles (Chicken)",
-    category: "Noodles",
-    price: 310,
-    rating: 4.6,
-    time: "25 min",
-    image: "https://i.pinimg.com/1200x/a2/a5/8c/a2a58c02faa59ac99a0fd8a8f4911d86.jpg",
-    description: "Spicy chilli garlic noodles tossed with succulent chicken.",
-  },
-
   /* ================= PASTA ================= */
   {
     id: "p1",
