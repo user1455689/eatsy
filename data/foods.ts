@@ -1,29 +1,5 @@
-export type FoodItem = {
-  id: string;
-  name: string;
-  category:
-    | "Momos"
-    | "Noodles"
-    | "Pasta"
-    | "Rice"
-    | "Burger"
-    | "Sandwich"
-    | "Pizza"
-    | "Quick Bites"
-    | "Veg Bites"
-    | "Non-Veg Bites"
-    | "Rolls";
-  price: number;
-  rating: number;
-  time: string;
-  image: string;
-  description: string;
-  type: "veg" | "non-veg";
-};
-
-export const foods: FoodItem[] = [
+export const foods = [
   /* ================= MOMOS ================= */
-
   {
     id: "m1",
     name: "Veg Momo",
@@ -31,11 +7,8 @@ export const foods: FoodItem[] = [
     price: 170,
     rating: 4.2,
     time: "18 min",
-    image:
-      "https://i.pinimg.com/736x/7d/33/a3/7d33a300db7d513ccfa9494fe291bcea.jpg",
-    description:
-      "Steamed vegetable dumplings served with spicy tomato chutney.",
-    type: "veg",
+    image: "https://i.pinimg.com/736x/7d/33/a3/7d33a300db7d513ccfa9494fe291bcea.jpg",
+    description: "Steamed vegetable dumplings served with spicy tomato chutney.",
   },
   {
     id: "m2",
@@ -44,11 +17,8 @@ export const foods: FoodItem[] = [
     price: 220,
     rating: 4.4,
     time: "20 min",
-    image:
-      "https://i.pinimg.com/736x/a9/49/2b/a9492b09542e23ee2d96ccc98bd64e85.jpg",
-    description:
-      "Juicy minced chicken dumplings with Himalayan herbs.",
-    type: "non-veg",
+    image: "https://i.pinimg.com/736x/a9/49/2b/a9492b09542e23ee2d96ccc98bd64e85.jpg",
+    description: "Juicy minced chicken dumplings with Himalayan herbs.",
   },
   {
     id: "m3",
@@ -57,128 +27,284 @@ export const foods: FoodItem[] = [
     price: 260,
     rating: 4.5,
     time: "20 min",
-    image:
-      "https://i.pinimg.com/736x/62/ca/5b/62ca5b4bc355b9b46a72db730748276b.jpg",
-    description:
-      "Rich cheese-filled dumplings, a local favorite.",
-    type: "veg",
+    image: "https://i.pinimg.com/736x/62/ca/5b/62ca5b4bc355b9b46a72db730748276b.jpg",
+    description: "Rich cheese-filled dumplings, a local favorite.",
   },
   {
     id: "m4",
-    name: "Chilli Momo",
+    name: "Chilli Momo (Veg)",
     category: "Momos",
     price: 210,
     rating: 4.6,
     time: "22 min",
-    image:
-      "https://i.pinimg.com/1200x/97/0f/ad/970fad6833f9088cedab06751d907f97.jpg",
-    description:
-      "Fried momos tossed in spicy Indo-Chinese sauce.",
-    type: "veg",
+    image: "https://i.pinimg.com/1200x/97/0f/ad/970fad6833f9088cedab06751d907f97.jpg",
+    description: "Fried momos tossed in a spicy, tangy Indo-Chinese sauce.",
+  },
+  {
+    id: "m5",
+    name: "Chicken Creamy Momo (Veg)",
+    category: "Momos",
+    price: 310,
+    rating: 4.6,
+    time: "22 min",
+    image: "/images/placeholder.jpg",
+    description: "Momos smothered in a rich, white creamy fusion sauce.",
+  },
+  {
+    id: "m6",
+    name: "Veg Creamy Momo (Veg)",
+    category: "Momos",
+    price: 260,
+    rating: 4.6,
+    time: "22 min",
+    image: "/images/placeholder.jpg",
+    description: "Momos smothered in a rich, white creamy fusion sauce.",
+  },
+  {
+    id: "m7",
+    name: "Veg Dynamite Momo (Veg)",
+    category: "Momos",
+    price: 290,
+    rating: 4.7,
+    time: "25 min",
+    image: "/images/placeholder.jpg",
+    description: "Extra spicy momos for those who love a fiery kick.",
   },
 
-  /* ================= NOODLES ================= */
+  {
+    id: "m8",
+    name: "Chicken Dynamite Momo (Non-Veg)",
+    category: "Momos",
+    price: 340,
+    rating: 4.7,
+    time: "25 min",
+    image: "/images/placeholder.jpg",
+    description: "Extra spicy momos for those who love a fiery kick.",
+  },
 
+[
+  // ---------------- VEG ----------------
   {
     id: "n1",
-    name: "Chowmein",
+    name: "Chowmein (Veg)",
     category: "Noodles",
     price: 190,
     rating: 4.2,
     time: "20 min",
-    image:
-      "https://i.pinimg.com/1200x/03/49/71/0349716798a4aec7506f338db1823497.jpg",
-    description:
-      "Classic stir-fried noodles with fresh vegetables.",
-    type: "veg",
+    image: "https://i.pinimg.com/1200x/03/49/71/0349716798a4aec7506f338db1823497.jpg",
+    description: "Classic stir-fried noodles with fresh garden vegetables.",
   },
   {
     id: "n2",
-    name: "Chicken Chowmein",
+    name: "Jhol Thukpa (Veg)",
     category: "Noodles",
     price: 240,
     rating: 4.4,
     time: "22 min",
-    image:
-      "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
-    description:
-      "Stir-fried noodles with juicy chicken pieces.",
-    type: "non-veg",
+    image: "https://i.pinimg.com/736x/93/0b/ce/930bce04ccd794b0f8bfab12536456cb.jpg",
+    description: "Tibetan-style noodle soup with a flavorful spiced broth.",
   },
   {
     id: "n3",
-    name: "Jhol Thukpa",
+    name: "Hakka Noodles (Veg)",
+    category: "Noodles",
+    price: 240,
+    rating: 4.3,
+    time: "22 min",
+    image: "https://i.pinimg.com/1200x/a0/62/b7/a062b7046e8d291c9417a99e777cb121.jpg",
+    description: "Wok-tossed noodles in authentic Hakka style.",
+  },
+  {
+    id: "n4",
+    name: "Keema Noodles (Chicken)",
+    category: "Noodles",
+    price: 280,
+    rating: 4.5,
+    time: "25 min",
+    image: "https://i.pinimg.com/736x/89/5d/f5/895df5e1d6f298c0f0a196d8f6795aa9.jpg",
+    description: "Noodles topped with spicy minced chicken keema.",
+   },
+  {
+    id: "n5",
+    name: "Chilli Garlic Noodles (Veg)",
+    category: "Noodles",
+    price: 260,
+    rating: 4.5,
+    time: "24 min",
+    image: "https://i.pinimg.com/1200x/92/e0/df/92e0dffc45e237de0c6b00ed1f472747.jpg",
+    description: "Noodles tossed with burnt garlic and red chilli flakes.",
+  },
+  {
+    id: "n6",
+    name: "Noodles IB Style (Veg)",
+    category: "Noodles",
+    price: 310,
+    rating: 4.8,
+    time: "25 min",
+    image: "/images/placeholder.jpg",
+    description: "Signature Indo-Bhutan cafe special noodles.",
+  },
+  {
+    id: "n7",
+    name: "Chicken Jhol Thukpa (Non Veg)",
+    category: "Noodles",
+    price: 290,
+    rating: 4.4,
+    time: "22 min",
+    image: "https://i.pinimg.com/736x/93/0b/ce/930bce04ccd794b0f8bfab12536456cb.jpg",
+    description: "Tibetan-style noodle soup with a flavorful spiced broth.",
+  },
+
+  // ---------------- NON-VEG ----------------
+  {
+    id: "n1-nv",
+    name: "Chowmein (Chicken)",
     category: "Noodles",
     price: 240,
     rating: 4.4,
     time: "22 min",
-    image:
-      "https://i.pinimg.com/736x/93/0b/ce/930bce04ccd794b0f8bfab12536456cb.jpg",
-    description:
-      "Tibetan-style noodle soup with flavorful broth.",
-    type: "veg",
+    image: "https://i.pinimg.com/1200x/d0/a8/1c/d0a81cfebe822963a98c78ea385b3969.jpg",
+    description: "Classic stir-fried noodles with juicy chicken pieces.",
+  },
+  {
+    id: "n2-nv",
+    name: "Jhol Thukpa (Chicken)",
+    category: "Noodles",
+    price: 290,
+    rating: 4.6,
+    time: "24 min",
+    image: "https://i.pinimg.com/736x/49/a7/c1/49a7c12ae908df04ec022548f40d62fe.jpg",
+    description: "Hearty Tibetan noodle soup with tender chicken in rich broth.",
+  },
+  
+  {
+    id: "n3-nv",
+    name: "Hakka Noodles (Chicken)",
+    category: "Noodles",
+    price: 290,
+    rating: 4.5,
+    time: "24 min",
+    image: "https://i.pinimg.com/1200x/e7/c5/aa/e7c5aaf9d363c7e7c8666e8408d278a0.jpg",
+    description:"Wok-tossed Hakka noodles with seasoned chicken strips.",
+  },
+  {
+    id: "n5-nv",
+    name: "Chilli Garlic Noodles (Chicken)",
+    category: "Noodles",
+    price: 310,
+    rating: 4.6,
+    time: "25 min",
+    image: "https://i.pinimg.com/1200x/a2/a5/8c/a2a58c02faa59ac99a0fd8a8f4911d86.jpg",
+    description: "Spicy chilli garlic noodles tossed with succulent chicken.",
   },
 
   /* ================= PASTA ================= */
-
   {
     id: "p1",
-    name: "White Sauce Pasta",
+    name: "White Sauce Pasta (Veg)",
     category: "Pasta",
     price: 340,
     rating: 4.3,
     time: "25 min",
-    image:
-      "https://i.pinimg.com/1200x/4f/10/da/4f10da5c58089b7e57ef33222272ade1.jpg",
-    description:
-      "Creamy white sauce pasta with cheese.",
-    type: "veg",
+    image: "https://i.pinimg.com/1200x/4f/10/da/4f10da5c58089b7e57ef33222272ade1.jpg",
+    description: "Pasta cooked in a smooth, cheesy bechamel sauce.",
   },
   {
     id: "p2",
-    name: "Chicken White Sauce Pasta",
+    name: "Chicken White Sauce Pasta (Non Veg)",
     category: "Pasta",
     price: 410,
     rating: 4.3,
     time: "25 min",
-    image:
-      "https://i.pinimg.com/1200x/37/70/ef/3770eff090c9b0ffa164cc7cd8ee43fe.jpg",
-    description:
-      "Creamy pasta loaded with chicken.",
-    type: "non-veg",
+    image: "https://i.pinimg.com/1200x/37/70/ef/3770eff090c9b0ffa164cc7cd8ee43fe.jpg",
+    description: "Pasta cooked in a smooth, cheesy bechamel sauce.",
+  },
+  {
+    id: "p3",
+    name: "Red Sauce Pasta (Veg)",
+    category: "Pasta",
+    price: 390,
+    rating: 4.4,
+    time: "25 min",
+    image: "https://i.pinimg.com/1200x/d4/af/ae/d4afaea8a8793de367d324501f016638.jpg",
+    description: "Pasta tossed in a tangy and spicy tomato basil sauce.",
+  },
+   {
+    id: "p4",
+    name: "Chicken Red Sauce Pasta (Non Veg)",
+    category: "Pasta",
+    price: 450,
+    rating: 4.4,
+    time: "25 min",
+    image: "https://i.pinimg.com/1200x/d9/11/f8/d911f8fc5102409131814aa4ca0139d7.jpg",
+    description: "Pasta tossed in a tangy and spicy tomato basil sauce.",
   },
 
-  /* ================= RICE ================= */
-
+  /* ================= RICE FUSION ================= */
   {
-    id: "r1",
-    name: "Veg Fried Rice",
+    id: "rf1",
+    name: "Fried Rice (Veg)",
     category: "Rice",
     price: 250,
     rating: 4.1,
     time: "15 min",
-    image:
-      "https://i.pinimg.com/1200x/ef/9b/ba/ef9bba676ac73c9f727db77d40d07ddf.jpg",
-    description:
-      "Classic veg fried rice with basmati.",
-    type: "veg",
+    image: "https://i.pinimg.com/1200x/ef/9b/ba/ef9bba676ac73c9f727db77d40d07ddf.jpg",
+    description: "Classic veg fried rice cooked with aromatic basmati.",
   },
   {
-    id: "r2",
+    id: "rf2",
     name: "Chicken Fried Rice",
     category: "Rice",
     price: 310,
     rating: 4.7,
     time: "25 min",
-    image:
-      "https://i.pinimg.com/1200x/46/97/2a/46972ab18a5cbfa51ddad6b23879025f.jpg",
-    description:
-      "Spicy fried rice with chicken.",
-    type: "non-veg",
+    image: "https://i.pinimg.com/1200x/46/97/2a/46972ab18a5cbfa51ddad6b23879025f.jpg",
+    description: "Spicy fusion rice served with fiery dragon chicken strips.",
+  },
+
+  /* ================= BURGER & SANDWICH ================= */
+  {
+    id: "b1",
+    name: "Veg Burger",
+    category: "Burger",
+    price: 220,
+    rating: 4.1,
+    time: "15 min",
+    image: "https://i.pinimg.com/1200x/b3/4e/d4/b34ed4b00a3dd297cd6c850133e3936c.jpg",
+    description: "Crispy veg patty with fresh lettuce and mayo.",
+  },
+  {
+    id: "b2",
+    name: "Chicken Burger",
+    category: "Burger",
+    price: 250,
+    rating: 4.4,
+    time: "18 min",
+    image: "https://i.pinimg.com/736x/5f/82/e3/5f82e30c4a237be5a7450981997fc399.jpg",
+    description: "Grilled chicken patty with secret house sauce.",
+  },
+  {
+    id: "s1",
+    name: "Grilled Veg Sandwich",
+    category: "Sandwich",
+    price: 210,
+    rating: 4.0,
+    time: "15 min",
+    image: "https://i.pinimg.com/1200x/2c/11/93/2c11935117092b235038c6061a4f456e.jpg",
+    description: "Toasted bread filled with spiced vegetables.",
+  },
+  {
+    id: "s2",
+    name: "Grilled Chicken Sandwich",
+    category: "Sandwich",
+    price: 290,
+    rating: 4.3,
+    time: "18 min",
+    image: "https://i.pinimg.com/736x/70/42/76/7042764ebad2e8c8eb243471b5de58fb.jpg",
+    description: "Smoky grilled chicken pieces in a toasted sandwich.",
   },
 
   /* ================= PIZZA ================= */
-
   {
     id: "pz1",
     name: "Onion & Capsicum Pizza",
@@ -186,11 +312,8 @@ export const foods: FoodItem[] = [
     price: 590,
     rating: 4.3,
     time: "25 min",
-    image:
-      "https://i.pinimg.com/736x/b0/96/23/b09623357dd96f64242e391b00fae7fe.jpg",
-    description:
-      "Classic pizza with onion and capsicum.",
-    type: "veg",
+    image: "https://i.pinimg.com/736x/b0/96/23/b09623357dd96f64242e391b00fae7fe.jpg",
+    description: "Classic pizza with crunchy onions and capsicum.",
   },
   {
     id: "pz2",
@@ -199,10 +322,84 @@ export const foods: FoodItem[] = [
     price: 690,
     rating: 4.6,
     time: "28 min",
-    image:
-      "https://i.pinimg.com/1200x/2c/6f/45/2c6f458e1008a355f99440e397caee20.jpg",
-    description:
-      "Spicy chicken chilli pizza.",
-    type: "non-veg",
+    image: "https://i.pinimg.com/1200x/2c/6f/45/2c6f458e1008a355f99440e397caee20.jpg",
+    description: "Spicy chicken chilli chunks on a cheesy pizza base.",
+  },
+  {
+    id: "pz3",
+    name: "Cheese Overloaded Pizza",
+    category: "Pizza",
+    price: 790,
+    rating: 4.9,
+    time: "30 min",
+    image: "https://i.pinimg.com/736x/7b/cf/b6/7bcfb62de522fa909e856a0e79542f5b.jpg",
+    description: "Triple cheese blend for the ultimate indulgence.",
+  },
+
+  /* ================= QUICK BITES & VEG BITES ================= */
+  {
+    id: "qb1",
+    name: "French Fries",
+    category: "Quick Bites",
+    price: 240,
+    rating: 4.2,
+    time: "12 min",
+    image: "https://i.pinimg.com/736x/6c/01/b9/6c01b9368c891b48c37d9c7974b8adf6.jpg",
+    description: "Perfectly salted, golden crispy fries.",
+  },
+  
+  {
+    id: "vb2",
+    name: "Paneer Chilli",
+    category: "Veg Bites",
+    price: 480,
+    rating: 4.6,
+    time: "20 min",
+    image: "https://i.pinimg.com/736x/58/a3/fa/58a3fac1143e2d6c9c22895d00c2eea6.jpg",
+    description: "Cubes of paneer tossed in a spicy soy-chilli sauce.",
+  },
+
+  /* ================= NON-VEG BITES ================= */
+  {
+    id: "nv1",
+    name: "Chicken Chilli",
+    category: "Non-Veg Bites",
+    price: 390,
+    rating: 4.6,
+    time: "20 min",
+    image: "https://i.pinimg.com/736x/9b/d8/a9/9bd8a95f250850b8aade2d6f55a4dc9b.jpg",
+    description: "Boneless chicken tossed with chillies and peppers.",
+  },
+  {
+    id: "nv2",
+    name: "Chicken Dry Fry",
+    category: "Non-Veg Bites",
+    price: 430,
+    rating: 4.5,
+    time: "22 min",
+    image: "https://i.pinimg.com/1200x/cc/1d/3c/cc1d3ce7d2c91ebea0a497b1cec9cfce.jpg",
+    description: "Crunchy fried chicken seasoned with house spices.",
+  },
+
+  /* ================= ROLLS ================= */
+  {
+    id: "r1",
+    name: "Egg Roll",
+    category: "Rolls",
+    price: 290,
+    rating: 4.2,
+    time: "15 min",
+    image: "https://i.pinimg.com/1200x/00/8b/e6/008be6452db46315db8f998db8006ef9.jpg",
+    description: "Classic street-style egg wrap.",
+  },
+  {
+    id: "r2",
+    name: "Chicken Roll",
+    category: "Rolls",
+    price: 340,
+    rating: 4.4,
+    time: "18 min",
+    image: "https://i.pinimg.com/1200x/63/65/87/6365870159e66be89efcd9cfee1a36d0.jpg",
+    description: "Spiced chicken filling wrapped in a soft paratha.",
   },
 ];
