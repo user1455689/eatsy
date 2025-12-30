@@ -226,7 +226,7 @@ export const foods = [
     price: 290,
     rating: 4.3,
     time: "18 min",
-    image: "https://i.pinimg.com/736x/70/42/76/7042764ebad2e8c8eb243471b5de58fb.jpg",
+    image: "https://i.pinimg.com/1200x/3e/1d/e6/3e1de60a4b5622e4ef9a721fa13253fa.jpg",
     description: "Smoky grilled and melted cheese pieces in a toasted sandwich.",
   },
 
