@@ -1,0 +1,4 @@
+const cards = ["Revenue", "Daily Orders", "Monthly Sales", "Top Products", "Customer Growth"];
+export default function AdminPage() {
+  return <main className="p-6 bg-slate-50 min-h-screen"><h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1><div className="grid md:grid-cols-3 gap-4">{cards.map((c)=><div key={c} className="rounded-2xl bg-white p-4 shadow-sm"><p className="text-sm text-gray-500">{c}</p><p className="text-2xl font-bold mt-2">—</p></div>)}</div><section className="mt-6 rounded-2xl bg-white p-4 shadow-sm"><h2 className="font-semibold mb-2">Operations</h2><ul className="text-sm list-disc pl-5 space-y-1"><li>Product CRUD + stock + variants</li><li>Order lifecycle and refunds</li><li>Banner/coupon campaign management</li><li>CMS + SEO metadata controls</li></ul></section></main>;
+}
