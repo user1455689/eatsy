@@ -1,165 +1,53 @@
 "use client";
-
-import { useState } from "react";
-
-import Header from "@/components/layout/Header";
-import CategoryTabs from "@/components/food/CategoryTabs";
-import FoodCard from "@/components/food/FoodCard";
+import Link from "next/link";
 import BottomNav from "@/components/layout/BottomNav";
-import BannerSlider from "@/components/home/BannerSlider";
-import PromoPopup from "@/components/ui/PromoPopup";
-
 import { foods } from "@/data/foods";
 
-/* ---------------- HELPERS ---------------- */
-
-const isVeg = (name: string) => {
-  const vegKeywords = [
-    "veg",
-    "paneer",
-    "cheese",
-    "mushroom",
-    "corn",
-  ];
-  return vegKeywords.some((k) =>
-    name.toLowerCase().includes(k)
-  );
-};
-
-const isNonVeg = (name: string) => {
-  const nonVegKeywords = [
-    "chicken",
-    "mutton",
-    "buff",
-    "egg",
-    "fish",
-  ];
-  return nonVegKeywords.some((k) =>
-    name.toLowerCase().includes(k)
-  );
-};
+const cats = ["Pizza","Burger","Noodles","Momos","Sandwich","Rice"];
 
 export default function HomePage() {
-  const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] =
-    useState("All");
-
-  const [foodType, setFoodType] =
-    useState<"All" | "Veg" | "Non-Veg">(
-      "All"
-    );
-
-  /* ---------------- FILTER LOGIC ---------------- */
-
-  const filteredFoods = foods.filter((food) => {
-    const matchesSearch = food.name
-      .toLowerCase()
-      .includes(search.toLowerCase());
-
-    const matchesCategory =
-      activeCategory === "All" ||
-      food.category === activeCategory;
-
-    const matchesType =
-      foodType === "All" ||
-      (foodType === "Veg" &&
-        isVeg(food.name)) ||
-      (foodType === "Non-Veg" &&
-        isNonVeg(food.name));
-
-    return (
-      matchesSearch &&
-      matchesCategory &&
-      matchesType
-    );
-  });
+  const trending = foods.slice(0, 4);
+  const recommended = foods.slice(4, 8);
 
   return (
-    <div className="min-h-screen bg-[#FFF5EE] pb-24 px-5 pt-6 text-black">
-      {/* Promo Popup */}
-      <PromoPopup />
-
-      {/* Header */}
-      <Header />
-
-      {/* Search */}
-      <input
-        value={search}
-        onChange={(e) =>
-          setSearch(e.target.value)
-        }
-        placeholder="Search for food"
-        className="
-          w-full mb-4 px-4 py-3
-          rounded-xl bg-white
-          shadow outline-none
-          text-black placeholder-gray-400
-        "
-      />
-
-      {/* 🥦 Veg / 🍗 Non-Veg Toggle */}
-      <div className="flex gap-3 mb-4">
-        {["All", "Veg", "Non-Veg"].map(
-          (type) => (
-            <button
-              key={type}
-              onClick={() =>
-                setFoodType(
-                  type as "All" | "Veg" | "Non-Veg"
-                )
-              }
-              className={`
-                flex-1 py-2 rounded-full
-                text-sm font-semibold
-                transition active:scale-95
-                ${
-                  foodType === type
-                    ? type === "Veg"
-                      ? "bg-green-600 text-white"
-                      : type === "Non-Veg"
-                      ? "bg-red-600 text-white"
-                      : "bg-gray-900 text-white"
-                    : "bg-white text-gray-700 shadow"
-                }
-              `}
-            >
-              {type === "Veg" && "🥦 "}
-              {type === "Non-Veg" && "🍗 "}
-              {type}
-            </button>
-          )
-        )}
-      </div>
-
-      {/* Banners */}
-      <BannerSlider />
-
-      {/* Categories */}
-      <CategoryTabs
-        activeCategory={activeCategory}
-        onSelectCategory={setActiveCategory}
-      />
-
-      {/* Section title */}
-      <h3 className="font-semibold mt-6 mb-3 text-gray-900">
-        Popular Food
-      </h3>
-
-      {/* Food Grid */}
-      {filteredFoods.length === 0 ? (
-        <p className="text-gray-600 text-sm">
-          No food found
-        </p>
-      ) : (
-        <div className="grid grid-cols-2 gap-4">
-          {filteredFoods.map((food) => (
-            <FoodCard key={food.id} food={food} />
-          ))}
+    <main className="min-h-screen pb-28 px-4 pt-4">
+      <section className="rounded-[28px] bg-[#ff6b4a] text-white p-4 elevated float-in">
+        <p className="text-xs opacity-90">Delivery Location</p>
+        <div className="flex items-center justify-between mt-1">
+          <h1 className="font-semibold text-lg truncate">2464 Royal Ln. Mesa, New Jersey</h1>
+          <div className="size-10 rounded-full bg-white/20" />
         </div>
-      )}
+        <Link href="/search" className="block mt-4 rounded-2xl bg-white text-gray-500 px-4 py-3">🔍 Search dishes, stores, groceries</Link>
+      </section>
 
-      {/* Bottom Navigation */}
+      <section className="mt-4 rounded-3xl p-4 bg-[linear-gradient(130deg,#ffcd55,#ffad33)] text-white elevated">
+        <p className="text-sm opacity-80">Limited Offer</p>
+        <h2 className="text-3xl leading-tight font-bold mt-1">50% OFF<br/>on first order</h2>
+        <Link href="/offers" className="inline-block mt-4 bg-white text-[#ff6b4a] px-5 py-2 rounded-full font-semibold soft-press">Order now</Link>
+      </section>
+
+      <section className="mt-6">
+        <div className="flex justify-between"><h3 className="text-xl font-semibold">All Categories</h3><Link href="/categories" className="text-[#ff6b4a]">See all</Link></div>
+        <div className="flex gap-3 overflow-x-auto mt-3 pb-1">
+          {cats.map((c, i) => <Link key={c} href="/categories" className="min-w-20 text-center"><div className="size-16 mx-auto rounded-full bg-orange-100 grid place-items-center text-2xl">{["🍕","🍔","🍜","🥟","🥪","🍚"][i]}</div><p className="text-xs mt-2">{c}</p></Link>)}
+        </div>
+      </section>
+
+      <section className="mt-6">
+        <div className="flex justify-between"><h3 className="text-xl font-semibold">Trending Restaurants</h3><Link href="/products" className="text-[#ff6b4a]">See all</Link></div>
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          {trending.map((f) => <Link key={f.id} href={`/products/${f.id}`} className="rounded-3xl glass-card p-2"><img src={f.image} alt={f.name} className="h-26 w-full object-cover rounded-2xl"/><p className="font-semibold mt-2 text-sm">{f.name}</p><p className="text-xs text-gray-500">⭐ {f.rating} • {f.time}</p></Link>)}
+        </div>
+      </section>
+
+      <section className="mt-6">
+        <div className="flex justify-between"><h3 className="text-xl font-semibold">Flash Sale</h3><span className="text-[#ff6b4a] text-sm">Ends in 02:14:22</span></div>
+        <div className="mt-3 space-y-3">
+          {recommended.map((f) => <Link key={f.id} href={`/products/${f.id}`} className="flex items-center gap-3 rounded-2xl bg-white p-3 elevated"><img src={f.image} alt={f.name} className="size-16 rounded-xl object-cover"/><div className="flex-1"><p className="font-medium">{f.name}</p><p className="text-xs text-gray-500">{f.category}</p></div><div><p className="font-bold text-[#ff6b4a]">Rs {f.price}</p><p className="text-xs text-emerald-600">20% OFF</p></div></Link>)}
+        </div>
+      </section>
+
       <BottomNav />
-    </div>
+    </main>
   );
 }
