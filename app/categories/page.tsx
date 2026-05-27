@@ -1,0 +1,2 @@
+import { foods } from "@/data/foods";
+export default function Categories(){const groups=[...new Set(foods.map(f=>f.category))]; return <main className="p-4"><h1 className="text-2xl font-bold">Browse Categories</h1><div className="grid grid-cols-2 gap-3 mt-4">{groups.map((g)=><div key={g} className="rounded-3xl bg-white p-5 elevated"><p className="text-2xl">🍽️</p><p className="mt-2 font-semibold">{g}</p></div>)}</div></main>}
